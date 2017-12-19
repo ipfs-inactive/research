@@ -12,6 +12,8 @@ The most important problems/technologies relevant to Protocol Labs that will/sho
 - office suite on IPFS
 - better represent data in hash-linked graphs 
 	- importers
+- certifiable archives (.car)
+
   
 ---
 This began as notes from a conversation on 2017-12-15 with @jbenet, @stebalien, @nicola, and @miyazono, but this list should grow and evolve. Please directly edit this to add additional items, submit issues to propose clarifications or removal of items, and convert these to more complete and formalized open problem statements.
