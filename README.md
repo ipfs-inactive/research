@@ -1,16 +1,9 @@
-
-
-Description: Research repo for %topic
-
-README.md
-research-%topic
-
-# Protocol Labs - %topic Research Repository
+# Protocol Labs - IPFS Research Repository
 
 
 ## What's in This Repo?
 
-This repo contains all exploratory research work and prototyping for %topic.  The meeting-notes folder contains notes from relevant calls and meetings, while the open-problems folder includes a list of very brief open problem statements that are to be expanded into thoroughly well-defined open problem statements.
+This repo contains all exploratory research work and prototyping for IPFS.  The meeting-notes folder contains notes from relevant calls and meetings, while the open-problems folder includes a list of very brief open problem statements that are to be expanded into thoroughly well-defined open problem statements.
 
 
 
