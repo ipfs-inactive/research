@@ -9,15 +9,16 @@ This repo contains all exploratory research work and prototyping for inclusion i
 ---
 
 ## Other Research Repos in this Org
-- [bitswap](https://github.com/ipfs/research-bitswap)
-- [CRDT](https://github.com/ipfs/research-CRDT)
-- [blockchain-data](https://github.com/ipfs/research-blockchain-data)
-- [p2p-video](https://github.com/ipfs/research-p2p-video)
+- (research-CRDT)[https://github.com/ipfs/research-CRDT]
+- (research-blockchain-data)[https://github.com/ipfs/research-blockchain-data]
+- (research-bitswap)[https://github.com/ipfs/research-bitswap]
+- (research-p2p-video)[https://github.com/ipfs/research-p2p-video]
 
 ## Other IPFS Related Research Orgs
 - [protocol](https://github.com/protocol/research)
 - [libp2p](https://github.com/libp2p/research)
 - [ipld](https://github.com/ipld/research)
 
+
 ## How to Navigate Protocol Labs Research 
-In general, research ideas start in [/protocol/research](https://github.com/protocol/research); please refer to that repo's README.md for a description of other research repositories.
+In general, research ideas start in [protocol/research](https://github.com/protocol/research); please refer to that repo's README.md for a description of other research repositories.  The aforementioned research repos are mostly centers for discussion; however, new research repos should generally be created with a well-defined project or goal.
