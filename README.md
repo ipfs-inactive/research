@@ -9,10 +9,10 @@ This repo contains all exploratory research work and prototyping for inclusion i
 ---
 
 ## Other Research Repos in this Org
-- (research-CRDT)[https://github.com/ipfs/research-CRDT]
-- (research-blockchain-data)[https://github.com/ipfs/research-blockchain-data]
-- (research-bitswap)[https://github.com/ipfs/research-bitswap]
-- (research-p2p-video)[https://github.com/ipfs/research-p2p-video]
+- [research-CRDT](https://github.com/ipfs/research-CRDT)
+- [research-blockchain-data](https://github.com/ipfs/research-blockchain-data)
+- [research-bitswap](https://github.com/ipfs/research-bitswap)
+- [research-p2p-video](https://github.com/ipfs/research-p2p-video)
 
 ## Other IPFS Related Research Orgs
 - [protocol](https://github.com/protocol/research)
