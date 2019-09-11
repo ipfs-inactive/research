@@ -37,6 +37,12 @@ Creating a separate IPFS Network will ensure that only the nodes can access the 
 
 - [libp2p-pnet](https://github.com/libp2p/specs/blob/master/pnet/Private-Networks-PSK-V1.md) takes that one step forward and creates a protection using a pre-shared key. This means that only the owners of that key can join this network (to prevent from mistakenly joining two networks and making all data accessible).
 
+##### Onion Routing 
+
+Onion routing is a technique for anonymous communication over a computer network. In an onion network, messages are encapsulated in layers of encryption, analogous to layers of an onion. The encrypted data is transmitted through a series of network nodes called onion routers, each of which "peels" away a single layer, uncovering the data's next destination.
+
+- [libp2p-onion](https://github.com/OpenBazaar/go-onion-transport)
+
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
 
@@ -51,6 +57,7 @@ Creating a separate IPFS Network will ensure that only the nodes can access the 
 - [SoK: Secure Messaging](https://ieeexplore.ieee.org/document/7163029)
 - [Ricochet](https://github.com/ricochet-im/ricochet/blob/master/doc/protocol.md)
 - [Cwtch: Privacy Preserving Infrastructure for Asynchronous,Decentralized, Multi-Party and Metadata Resistant Applications](https://cwtch.im/cwtch.pdf)
+- [HOPR - privacy-preserving messaging protocol ](https://github.com/validitylabs/hopr)
 
 ### Known shortcommins of existing solutions
 > What are the limitations on those solutions?
@@ -63,6 +70,17 @@ Some of the known shortcommings of existing solutions are:
 - Lack of complete authorization + revocation
 
 ## Solving this Open Problem
+> What are the hard constraints for a complete solution.
+
+Valid solutions should improve the current state of the art or offer definitive solutions for:
+
+- [ ] Two users can transfer a piece of information that no other user knows or can guess: what it is, why it is being transfer, between whom and when.
+- [ ] No single central authorities are required to mediate the communication
+- [ ] A provider has a way to grant and revoke access to information.
+
+As additional constraints
+
+- [ ] Mechanism to prevent data exfiltration (e.g. when a user goes rogue)
 
 ### What is the impact
 
@@ -83,5 +101,10 @@ It will lead to a generation of safer applications, both consumer level and busi
 - [Search over encrypted data](https://github.com/ipfs/notes/issues/128)
 - [Plausible deniability for blocks](https://github.com/ipfs/notes/issues/21)
 - [Alternative BitSwap strategies](https://github.com/ipfs/notes/issues/20)
+- [Anonymous IPFS](https://github.com/ipfs/go-ipfs/issues/6430)
+- [Privacy preserving DHTs](https://github.com/gpestana/notes/issues/8)
+- [DHT improvement ideas](https://github.com/libp2p/research-dht/issues/6)
+- [Tor onion integration](https://github.com/ipfs/notes/issues/37)
+- [Identity RFC](https://github.com/ipfs-shipyard/peer-star/pull/15)
 
 ### Extra notes
