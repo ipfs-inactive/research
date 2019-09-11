@@ -2,8 +2,7 @@
 
 ## Description
 
-
-
+Memorizing Content Addresses is hard, No one should have to do that. We need a solution that can provide Human Readable Names to users without making them to rely on a central provider, an unauthenticated host, on unauthenticated data or without leaking their intent to access some piece of content that is referenced by that name.
 
 ## State of the Art
 
@@ -14,7 +13,9 @@
 
 ##### DNSlink
 
-- https://docs.ipfs.io/guides/concepts/dnslink/
+DNSlink combines IPFS and DNS to use a user familiar addressing scheme (domains) to point to CIDs indirectly. An IPFS node will receive a request coming from domain-name.com, resolve it to see if it can find a TXT record with a CID and if found, resolve that for the user. This solution is convient but it does rely on DNS itself to work.
+
+- https://docs.ipfs.io/guides/concepts/dnslink
 
 ##### ENS with IPFS
 
@@ -28,16 +29,26 @@ Multibase now has support for a [mnemonic base](https://github.com/multiformats/
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
 
+- [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) - One of the first widely deployed solutions for Human readable names. 
+- 
+
 ### Known shortcommins of existing solutions
 > What are the limitations on those solutions?
 
+The existing solutions do not offer all the guarantees we want to achieve for Web 3.0 apps because:
+-
 
 ## Solving this Open Problem
 
 ### What is the impact
 
+Make the Content Addressing schemes more approachable by everyone.
+
 ### What defines a complete solution?
 > What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
+
+The constraints are:
+- 
 
 ## Other
 
