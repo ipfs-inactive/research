@@ -26,11 +26,16 @@ Thanks to libp2p, IPFS ensures that the communication between any two IPFS nodes
 Data Encryption means that we encrypt data at rest and only decrypted to consume it. This means that only the owner of the decryption key can access it. Some solutions with this technique are:
 
 - [ipfs-senc](https://github.com/jbenet/ipfs-senc) - Encrypts the data with a symetrical key that is shared to the receiver through a sidechannel
+
+##### Capability Systems / Cryptographic ACLs
+
 - [peer-base cryptographic ACLs](https://github.com/peer-base/peer-base) - These are used by [PeerPad](https://peerpad.net). The way they work is that for each user, a Pub/Priv key pair is generated and every time a user wants to make a modification, signs that modification and then encrypts it with a symmetric room key, so that only owners of the symmetric key can change and only changes from valid peers are accepted.
 
 ##### Private/Disjoint Networks
 
-Creating a separate IPFS Network will ensure that only the nodes can access the content within that network. [libp2p-pnet](https://github.com/libp2p/specs/blob/master/pnet/Private-Networks-PSK-V1.md) takes that one step forward and creates a protection using a pre-shared key. This means that only the owners of that key can join this network (to prevent from mistakenly joining two networks and making all data accessible).
+Creating a separate IPFS Network will ensure that only the nodes can access the content within that network. 
+
+- [libp2p-pnet](https://github.com/libp2p/specs/blob/master/pnet/Private-Networks-PSK-V1.md) takes that one step forward and creates a protection using a pre-shared key. This means that only the owners of that key can join this network (to prevent from mistakenly joining two networks and making all data accessible).
 
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
@@ -61,11 +66,22 @@ Some of the known shortcommings of existing solutions are:
 
 ### What is the impact
 
+Finding a complete solution to this Open Problem will grant the ability for any human in the planet to privately share information, read content without leaking their intent to anyone else other than the provider of that content, or even possibly, not even to the provider.
+
+It will lead to a generation of safer applications, both consumer level and business critical, that require full control of one's data (e.g. Health Data).
+
 ### What defines a complete solution?
 > What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
 
 ## Other
 
 ### Existing Conversations/Threads
+
+- [Censorship resistance on IPFS](https://github.com/ipfs/notes/issues/281)
+- [Content Encryption](https://github.com/ipfs/notes/issues/270)
+- [Shared Secret constructions for Private Networks](https://github.com/ipfs/notes/issues/177)
+- [Search over encrypted data](https://github.com/ipfs/notes/issues/128)
+- [Plausible deniability for blocks](https://github.com/ipfs/notes/issues/21)
+- [Alternative BitSwap strategies](https://github.com/ipfs/notes/issues/20)
 
 ### Extra notes
