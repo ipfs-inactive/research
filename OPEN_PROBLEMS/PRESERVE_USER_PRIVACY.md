@@ -70,7 +70,15 @@ Some of the known shortcommings of existing solutions are:
 - Lack of complete authorization + revocation
 
 ## Solving this Open Problem
-> What are the hard constraints for a complete solution.
+
+### What is the impact
+
+Finding a complete solution to this Open Problem will grant the ability for any human in the planet to privately share information, read content without leaking their intent to anyone else other than the provider of that content, or even possibly, not even to the provider.
+
+It will lead to a generation of safer applications, both consumer level and business critical, that require full control of one's data (e.g. Health Data).
+
+### What defines a complete solution?
+> What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
 
 Valid solutions should improve the current state of the art or offer definitive solutions for:
 
@@ -81,15 +89,6 @@ Valid solutions should improve the current state of the art or offer definitive 
 As additional constraints
 
 - [ ] Mechanism to prevent data exfiltration (e.g. when a user goes rogue)
-
-### What is the impact
-
-Finding a complete solution to this Open Problem will grant the ability for any human in the planet to privately share information, read content without leaking their intent to anyone else other than the provider of that content, or even possibly, not even to the provider.
-
-It will lead to a generation of safer applications, both consumer level and business critical, that require full control of one's data (e.g. Health Data).
-
-### What defines a complete solution?
-> What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
 
 ## Other
 
