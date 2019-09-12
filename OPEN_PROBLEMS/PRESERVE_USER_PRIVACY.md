@@ -23,7 +23,7 @@ Thanks to libp2p, IPFS ensures that the communication between any two IPFS nodes
 
 ##### Data Encryption
 
-Data Encryption means that we encrypt data at rest and only decrypted to consume it. This means that only the owner of the decryption key can access it. Some solutions with this technique are:
+Data Encryption means that we encrypt data at rest and only decrypt it to consume it. This means that only the owner of the decryption key can access it. Some solutions using this technique are:
 
 - [ipfs-senc](https://github.com/jbenet/ipfs-senc) - Encrypts the data with a symmetric key that is shared to the receiver through a sidechannel
 
