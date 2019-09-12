@@ -73,7 +73,7 @@ Some of the known shortcommings of existing solutions are:
 
 ### What is the impact
 
-Finding a complete solution to this Open Problem will grant the ability for any human in the planet to privately share information, read content without leaking their intent to anyone else other than the provider of that content, or even possibly, not even to the provider.
+Finding a complete solution to this Open Problem will grant any human in the planet the ability to privately access or share information without leaking their intent to non-local observers other than the provider of that content. Solutions may also be able to hide said intent from the content provider.
 
 It will lead to a generation of safer applications, both consumer level and business critical, that require full control of one's data (e.g. Health Data).
 
