@@ -1,12 +1,17 @@
-# Protocol Labs - IPFS Research Repository
+# IPFS Research Repository
 
 ## What's in This Repo?
 
-This repo contains all exploratory research work and prototyping for inclusion in IPFS.  The meeting-notes folder contains notes from relevant calls and meetings, while the open-problems folder includes a list of very brief open problem statements that are to be expanded into thoroughly well-defined open problem statements.
+This repo contains all exploratory research work and prototyping for inclusion in IPFS.  
 
- - Subscribe to this repo if you want to be updated about new IPFS specific research ideas and discussions.
+**Disclaimer:** While we work hard to document our work as it progresses, research progress may not be fully reflected here for some time, or may be worked out out-of-band.
 
----
+## Key Open Problems
+
+We break down a few of the Key Open Problems of high priority for the project in this repo. Some have open [RFPs](https://github.com/protocol/research-rfps#rfps-and-grants). For all, we welcome any collaborations (potentially leading to new constructions, discoveries and publications). Please reach out at research@protocol.ai.
+
+**List:**
+- Currently all in [PRs](https://github.com/ipfs/research/pulls)
 
 ## Other Research Repos in this Org
 
@@ -15,13 +20,8 @@ This repo contains all exploratory research work and prototyping for inclusion i
 - [research-bitswap](https://github.com/ipfs/research-bitswap)
 - [research-p2p-video](https://github.com/ipfs/research-p2p-video)
 
-## Other IPFS Related Research Orgs
+## Related research repos
 
-- [protocol](https://github.com/protocol/research)
-- [libp2p](https://github.com/libp2p/research)
-- [ipld](https://github.com/ipld/research)
-
-
-## How to Navigate Protocol Labs Research 
-
-In general, research ideas start in [protocol/research](https://github.com/protocol/research); please refer to that repo's README.md for a description of other research repositories.  The aforementioned research repos are mostly centers for discussion; however, new research repos should generally be created with a well-defined project or goal.
+- [Protocol Labs Research](https://github.com/protocol/research)
+- [libp2p Research](https://github.com/libp2p/research)
+- [IPLD Research](https://github.com/ipld/research)
