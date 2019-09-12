@@ -29,7 +29,7 @@ Data Encryption means that we encrypt data at rest and only decrypted to consume
 
 ##### Capability Systems / Cryptographic ACLs
 
-- [peer-base cryptographic ACLs](https://github.com/peer-base/peer-base) - These are used by [PeerPad](https://peerpad.net). The way they work is that for each user, a Pub/Priv key pair is generated and every time a user wants to make a modification, signs that modification and then encrypts it with a symmetric room key, so that only owners of the symmetric key can change and only changes from valid peers are accepted.
+- [peer-base cryptographic ACLs](https://github.com/peer-base/peer-base) - These are used by [PeerPad](https://peerpad.net). For each user, a Public/Private key pair is generated. Every time a user wants to make a modification, the user signs that modification and encrypts it with a symmetric room key so that only owners of the symmetric key can change and only changes from valid peers are accepted.
 
 ##### Private/Disjoint Networks
 
