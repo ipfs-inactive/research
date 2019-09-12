@@ -82,7 +82,7 @@ It will lead to a generation of safer applications, both consumer level and busi
 
 Valid solutions should improve the current state of the art or offer definitive solutions for:
 
-- [ ] Two users can transfer a piece of information that no other user knows or can guess: what it is, why it is being transfer, between whom and when.
+- [ ] Two users can transfer a piece of information without any other user knowing or being able to predict: what it is, why it is being transferred, when and between whom.
 - [ ] No single central authorities are required to mediate the communication
 - [ ] A provider has a way to grant and revoke access to information.
 
