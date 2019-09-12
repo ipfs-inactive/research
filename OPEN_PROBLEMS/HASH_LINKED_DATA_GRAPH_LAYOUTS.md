@@ -26,4 +26,16 @@
 
 ### Existing Conversations/Threads
 
+- [Content depending chunker](https://github.com/ipfs/notes/issues/183)
+- [IPLD Importers - endeavor notes](https://github.com/ipfs/notes/issues/144)
+- [merkledag datastructure DSL](https://github.com/ipfs/notes/issues/22)
+- [Small Languages for IPLD things (like IPRS)](https://github.com/ipfs/notes/issues/229)
+- [IPLD Selector Thoughts](https://github.com/ipfs/notes/issues/272)
+- [Authenticated RDF (or RDF/JSON-ld on IPLD)](https://github.com/ipfs/notes/issues/152)
+- [commutative or rolling cryptographic hash](https://github.com/ipfs/notes/issues/83)
+- [InterPlanetary language](https://github.com/ipfs/notes/issues/50)
+- [Stackstream possibilities](https://github.com/ipfs/notes/issues/25)
+- [streaming byte-string Stack-based Assembly draft](https://github.com/ipfs/notes/issues/6)
+- [JRFC 20 - Merkle DAG](https://github.com/jbenet/random-ideas/issues/20)
+
 ### Extra notes
