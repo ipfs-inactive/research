@@ -2,7 +2,7 @@
 
 ## Description
 
-The Web 2.0 and its centralized infrastructure fail to protect users' privacy when they exchange data with other users. This can happen in one of two ways, either by simply transferring/storing the data unencrypted or by pattern analysis of access which can reveal interest and intent.
+The Web 2.0 and uses by default a centralized infrastructure design that fails to protect users' privacy. Some of the common patterns that we see making users vulnerable are: when data is not encrypted, both at rest and while transfering; users interactions with services leaks their intent, which creates the opportunity for a pattern analysis attack.
 
 In the Web 3.0, the dWeb, users get the ability to share data with other peers without using an intermediary, however, a complete solution is still missing that can prevent users leaking what data they are serving and fetching through sidechannels/pattern analysis (e.g. When searches are made, either through a search engine or simply by searching for the blocks in a Distributed Hash Table).
 
@@ -23,7 +23,7 @@ Thanks to libp2p, IPFS ensures that the communication between any two IPFS nodes
 
 ##### Data Encryption
 
-Data Encryption means that we encrypt data at rest and only decrypt it to consume it. This means that only the owner of the decryption key can access it. Some solutions using this technique are:
+By encrypting the data at rest and only decrypting it when it needs to be used, we can ensure that only someone with access to the decryption key can indeed access that data. Some solutions using this technique are:
 
 - [ipfs-senc](https://github.com/jbenet/ipfs-senc) - Encrypts the data with a symmetric key that is shared to the receiver through a sidechannel
 
