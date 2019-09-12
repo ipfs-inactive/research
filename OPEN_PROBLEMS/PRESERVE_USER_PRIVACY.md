@@ -2,7 +2,7 @@
 
 ## Description
 
-The Web 2.0 and its centralized infrastructure missed to deliver full users' privacy when these are accessing and delivering content to other users in the Network. This can happen in one of two ways, either by simply transfering/storing the data uncrypted or by pattern analysis of access which can reveal users interest and intent.
+The Web 2.0 and its centralized infrastructure fail to protect users' privacy when they exchange data with other users. This can happen in one of two ways, either by simply transferring/storing the data unencrypted or by pattern analysis of access which can reveal interest and intent.
 
 In the Web 3.0, the dWeb, users get the ability to share data with other peers without using an intermediary, however, a complete solution is still missing that can prevent users leaking what data they are serving and fetching through sidechannels/pattern analysis (e.g. When searches are made, either through a search engine or simply by searching for the blocks in a Distributed Hash Table).
 
