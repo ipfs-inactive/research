@@ -64,7 +64,7 @@ Onion routing is a technique for anonymous communication over a computer network
 
 Some of the known shortcommings of existing solutions are:
 
-- They don't offer protection to network analysis (it is possible to infer what the user is doing by analysis the network traffic)
+- They don't offer protection against network analysis (it is possible to infer what the user is doing by analysing network traffic)
 - Solutions that are more resistant (not fully resistent) typically trade off bandwidth + memory for creating that protection (e.g. creating noise in the network to make it hard to distinguish valid from dummy traffic) 
 - Lack of data encryption at rest
 - Lack of complete authorization + revocation
