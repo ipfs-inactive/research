@@ -26,4 +26,14 @@
 
 ### Existing Conversations/Threads
 
+- [Batch gets](https://github.com/ipfs/notes/issues/285)
+- [Move giant files/datasets at Level1 + Level2 ](https://github.com/ipfs/notes/issues/218)
+- [Reed-Solomon layer over IPFS](https://github.com/ipfs/notes/issues/196)
+- [Tracking progress and other data](https://github.com/ipfs/notes/issues/107)
+- [Advanced Pinning](https://github.com/ipfs/notes/issues/49)
+- [bandwidth estimators](https://github.com/ipfs/notes/issues/30)
+- [Alternative BitSwap strategies](https://github.com/ipfs/notes/issues/20)
+- [Bitswap Simulator](https://github.com/heems/bssim)
+- [bsdash - dashboard for go-ipfs bitswap](https://www.npmjs.com/package/bsdash)
+
 ### Extra notes
