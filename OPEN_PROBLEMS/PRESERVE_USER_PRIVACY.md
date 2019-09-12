@@ -33,7 +33,7 @@ Data Encryption means that we encrypt data at rest and only decrypted to consume
 
 ##### Private/Disjoint Networks
 
-Creating a separate IPFS Network will ensure that only the nodes can access the content within that network. 
+Creating a separate IPFS Network will ensure that only member nodes can access the content within that network. 
 
 - [libp2p-pnet](https://github.com/libp2p/specs/blob/master/pnet/Private-Networks-PSK-V1.md) takes that one step forward and creates a protection using a pre-shared key. This means that only the owners of that key can join this network (to prevent from mistakenly joining two networks and making all data accessible).
 
