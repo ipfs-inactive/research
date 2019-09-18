@@ -1,6 +1,9 @@
 # Improved layouts to represent data in hash-linked graphs (using IPLD)
 
-## Description
+## Short Description
+> In one sentence or paragraph.
+
+## Long Description
 
 IPFS offers a unique way to represent any kind of data in a hash-linked graph. What this means is that a file can be chunked in different ways and these chunks can be organized with the goal of improving file seek times, file fetching, reducing time to first byte and more, which creates the room for drastic improvements in the performance of certain applications (e.g. video streaming) and the memory footprint of each dataset.
 
