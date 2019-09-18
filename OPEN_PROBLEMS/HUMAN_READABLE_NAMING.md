@@ -1,6 +1,9 @@
 # Human Readable Naming
 
-## Description
+## Short Description
+> In one sentence or paragraph.
+
+## Long Description
 
 Memorizing Content Addresses is hard, No one should have to do that. We need a solution that can provide Human Readable Names to users without making them to rely on a central provider, an unauthenticated host, on unauthenticated data or without leaking their intent to access some piece of content that is referenced by that name.
 
