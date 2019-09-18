@@ -1,6 +1,11 @@
 # Mutable Data (Naming, Real-Time, Guarantees)
 
-## Description
+## Short Description
+> In one sentence or paragraph.
+
+How to enable a multitude of patterns of interaction between users and users, users and machines and machines and machines. In another words, what primitives to create to dynamic data apps and what guarantees can these offer.
+
+## Long Description
 
 Mutable Data in a Permanent Datastore? WAT?! If this is your reaction, don't despair, we've been there too. However, the good news is that achieving mutability over immutable datastores is not a new idea, in fact, if you are checking this document through Git/GitHub, you are experiencing just that.
 
