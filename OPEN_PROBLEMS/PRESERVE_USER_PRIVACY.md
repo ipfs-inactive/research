@@ -7,7 +7,7 @@ How to ensure that the user's of the IPFS network can collect and provide inform
 
 ## Description
 
-The Web 2.0 and uses by default a centralized infrastructure design that fails to protect users' privacy. Some of the common patterns that we see making users vulnerable are: when data is not encrypted, both at rest and while transfering; users interactions with services leaks their intent, which creates the opportunity for a pattern analysis attack.
+The Web 2.0 implements a default centralized infrastructure design that fails to protect users' privacy. Some of the common patterns that we see making users vulnerable are: when data is not encrypted, both at rest and in transit, users' interactions with services leaks their intent, which creates the opportunity for a pattern analysis attack.
 
 In the Web 3.0, the dWeb, users get the ability to share data with other peers without using an intermediary, however, a complete solution is still missing that can prevent users leaking what data they are serving and fetching through sidechannels/pattern analysis (e.g. When searches are made, either through a search engine or simply by searching for the blocks in a Distributed Hash Table).
 
