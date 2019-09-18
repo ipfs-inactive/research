@@ -51,18 +51,24 @@ Onion routing is a technique for anonymous communication over a computer network
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
 
-- [TahoeLAFS Capability System](https://en.wikipedia.org/wiki/Tahoe-LAFS) - The peer-base Cryptographic ACLs were inspired by TahoeLAFS Capabolity System. 
-- [DoubleRatchet](https://signal.org/docs/specifications/doubleratchet/) / [Matrix.org Olm/MegaOLM](https://gitlab.matrix.org/matrix-org/olm/blob/master/docs/olm.md#olm-a-cryptographic-ratchet)
-- [Using Sphinx to Improve Onion RoutingCircuit Construction](https://www.cypherpunks.ca/~iang/pubs/SphinxOR.pdf)
-- [Scuttlebutt Secret Handshare](https://dominictarr.github.io/secret-handshake-paper/shs.pdf)
-- [Octopus: A Secure and Anonymous DHT Lookup](https://ieeexplore.ieee.org/document/6258005)
-- [Vuvuzela: Scalable Private Messaging Resistant to Traffic Analysis](https://davidlazar.org/papers/vuvuzela.pdf)
-- [Define privacy threat model for DHTs (and other overlay P2P networks)](https://github.com/gpestana/notes/issues/3)
-- [Talek: a Private Publish-Subscribe Protocol](https://raymondcheng.net/download/papers/talek-tr.pdf)
-- [SoK: Secure Messaging](https://ieeexplore.ieee.org/document/7163029)
-- [Ricochet](https://github.com/ricochet-im/ricochet/blob/master/doc/protocol.md)
-- [Cwtch: Privacy Preserving Infrastructure for Asynchronous,Decentralized, Multi-Party and Metadata Resistant Applications](https://cwtch.im/cwtch.pdf)
-- [HOPR - privacy-preserving messaging protocol ](https://github.com/validitylabs/hopr)
+- Authorization, Authentication, Accounting
+  - [TahoeLAFS Capability System](https://en.wikipedia.org/wiki/Tahoe-LAFS) - The peer-base Cryptographic ACLs were inspired by TahoeLAFS Capabolity System. 
+- Data Encryption
+  - [DoubleRatchet](https://signal.org/docs/specifications/doubleratchet/) / [Matrix.org Olm/MegaOLM](https://gitlab.matrix.org/matrix-org/olm/blob/master/docs/olm.md#olm-a-cryptographic-ratchet)
+- M2M Private Communication
+  - [Scuttlebutt Secret Handshare](https://dominictarr.github.io/secret-handshake-paper/shs.pdf)
+  - [HOPR - privacy-preserving messaging protocol ](https://github.com/validitylabs/hopr)
+  - [SoK: Secure Messaging](https://ieeexplore.ieee.org/document/7163029)
+  - [Talek: a Private Publish-Subscribe Protocol](https://raymondcheng.net/download/papers/talek-tr.pdf)
+  - [Ricochet](https://github.com/ricochet-im/ricochet/blob/master/doc/protocol.md)
+- Content Routing
+  - [Define privacy threat model for DHTs (and other overlay P2P networks)](https://github.com/gpestana/notes/issues/3)
+  - [Using Sphinx to Improve Onion Routing Circuit Construction](https://www.cypherpunks.ca/~iang/pubs/SphinxOR.pdf)
+  - [Octopus: A Secure and Anonymous DHT Lookup](https://ieeexplore.ieee.org/document/6258005)
+- Traffic Analysis resistant
+  - [Vuvuzela: Scalable Private Messaging Resistant to Traffic Analysis](https://davidlazar.org/papers/vuvuzela.pdf)
+- Other
+  - [Cwtch: Privacy Preserving Infrastructure for Asynchronous,Decentralized, Multi-Party and Metadata Resistant Applications](https://cwtch.im/cwtch.pdf)
 
 ### Known shortcommins of existing solutions
 > What are the limitations on those solutions?
