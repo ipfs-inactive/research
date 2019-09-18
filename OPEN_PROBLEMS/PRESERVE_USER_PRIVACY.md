@@ -1,5 +1,10 @@
 # Preseve full users' privacy when providing and fetching Content
 
+## Short Description
+> In one sentence or paragraph.
+
+How to ensure that the user's of the IPFS network can collect and provide information while mainting their full anonymity.
+
 ## Description
 
 The Web 2.0 and uses by default a centralized infrastructure design that fails to protect users' privacy. Some of the common patterns that we see making users vulnerable are: when data is not encrypted, both at rest and while transfering; users interactions with services leaks their intent, which creates the opportunity for a pattern analysis attack.
