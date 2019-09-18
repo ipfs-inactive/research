@@ -3,7 +3,7 @@
 ## Short Description
 > In one sentence or paragraph.
 
-How to ensure that the user's of the IPFS network can collect and provide information while mainting their full anonymity.
+How to ensure that users of the IPFS network can retrieve and provide information while maintaining full anonymity.
 
 ## Description
 
