@@ -3,17 +3,29 @@
 ## Short Description
 > In one sentence or paragraph.
 
-How to ensure that users of the IPFS network can retrieve and provide information while maintaining full anonymity.
+How to ensure that users of the IPFS network can retrieve and provide (whether as original publisher or as a cache provider) information while maintaining full anonymity.
 
 ## Description
 
-The Web 2.0 implements a default centralized infrastructure design that fails to protect users' privacy. Some of the common patterns that we see making users vulnerable are: when data is not encrypted, both at rest and in transit, users' interactions with services leaks their intent, which creates the opportunity for a pattern analysis attack.
+The Web 2.0 implements a default centralized infrastructure design that fails to protect users' privacy. Some of the common patterns that we see making users vulnerable are: when data is not encrypted, both at rest and in transit, users' interactions with services leaks their intent, which creates the opportunity for a pattern analysis attack. In a content-addressable network, unencrypted *content names* also allow for identification of what users are requesting and matching of requests to users.
 
 In the Web 3.0, the dWeb, users get the ability to share data with other peers without using an intermediary. However, a complete solution is still missing that can prevent users leaking what data they are serving and fetching through side channels/pattern analysis (e.g. when searches are made, either through a search engine or simply by searching for the blocks in a Distributed Hash Table).
 
-Some solutions exist to mitigate this problem (see the State of the Art section below). However, none is yet complete as in "it is always 100% private, period", requiring users to adapt and adopt certain strategies to anonymize the content, depending on the type of interaction they have with other users. This Open Problem is beyond a data encryption or wire encryption problem; a complete solution will have to provide a way to grant and revoke other users' access to content (Authorization), provide users with the ability to know when a piece of content they have shared is being accessed, (Accounting) and guarantee that the users with whom the content is being shared are who they claim to be (Authentication), while not letting a third party understand what is being shared, how and with whom.
+Some solutions exist to mitigate this problem (see the State of the Art section below). However, none is yet complete as in "it is always 100% private, period", requiring users to adapt and adopt certain strategies to anonymize the content, depending on the type of interaction they have with other users. This Open Problem is beyond a data encryption or wire encryption problem; a complete solution will have to provide a way to grant and revoke other users' access to content (Authorization), provide users with the ability to know when a piece of content they have published is being accessed (Accounting), and guarantee that the users with whom the content is being shared are who they claim to be (Authentication), while not letting a third party understand what is being shared, how and with whom.
 
 This happens to be one of the toughest problems to solve in order to provide a complete and human rights preserving fabric for knowledge.
+
+## Background
+
+One of the strongest advantages of a content-addressable, or content-centric network is the fact that (if natively deployed as a network-layer architecture) it can successfully hide the identity of requesting nodes. In contrast to the standard situation where every request is carrying the requestor's IP address, a native network-layer request for explicitly addressable content only carries with it the name of the content and *not* where the request is coming from. In such an environment, only immediate neighbour observers can (potentially) identify which node a request is originating from, since after the first-hop requests get "blended" together making it impossible to identify the source of the request. This is in stark contrast to the IP approach, where the source address of any request or data packet is carried permanently in the packet itself.
+
+Assuming that Data Authenticity can be supported by default through hash-based names and always-signed content, we identify the following categories that need immediate attention in this area:
+
+- Node privacy
+- Name privacy
+- Cache privacy
+- Producer or signature privacy
+
 
 ## State of the Art
 
