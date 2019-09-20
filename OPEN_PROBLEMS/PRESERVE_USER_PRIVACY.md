@@ -3,7 +3,7 @@
 ## Short Description
 > In one sentence or paragraph.
 
-How to ensure that users of the IPFS network can retrieve and provide (whether as original publisher or as a cache provider) information while maintaining full anonymity.
+How to ensure that users of the IPFS network can retrieve and provide (whether as original publisher or as a cache provider) information while maintaining full anonymity. In other words, we need to find and/or build tools, techniques and protocols that <strong>decouple actions from the entities that perform them</strong>.
 
 ## Description
 
@@ -64,6 +64,33 @@ Onion routing is a technique for anonymous communication over a computer network
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
 
+A general and rather simple approach and rule of thumb is to use an anonymising proxy which is placed between a sender and a receiver of traffic. This inevitably means that there is trust placed on this proxy to behave as desired. Decentralised approaches (that don't necessarily have to trust proxies or proxy operators) rely on layered encryption and multiple extra hops of routing so that any message cannot be linked to its originator/source.
+
+Research has generally fallen into one of two areas: i) those solutions that target non-delay-sensitive applications (e.g., email or FTP) and ii) those that do (e.g., VoIP, web). Traditionally, those classes have different requirements and therefore, different tradeoffs in terms of performance-anonymity requirements.
+
+Solutions to the first category include mix-network techniques, where, for instance, there is extra (spurious) traffic inserted in the network to obfuscate the environment and make it difficult to correlate traffic with senders and receivers. Artificially adding extra delay on the path from source to destination has also been a popular technique in this area.
+
+On the other end of the spectrum, anonymisation approaches that target delay-sensitive applications mainly consist of choosing random next hops to add an extra indirection (and encryption) on the path from source to destination.
+
+Past research has indicated several approaches to anonymisation and privacy, but very little has seen adoption to date (e.g., Tor, I2P). We believe that with the renewed interest in P2P, decentralised networks a fresh look is nedeed in order to either identify or re-design techniques that fit present-day challenges.
+
+- ICN-related Literature
+--- On preserving privacy in content-oriented networks (ACM ICN 2011)
+--- ANDaNA: Anonymous Named Data Networking Application (NDSS 2011)
+--- Content-Centric and Named-Data Networking Security: The Good, The Bad and The Rest (IEEE LANMAN 2018)
+
+- Non Delay Sensitive Applications:
+--- Mixing email with Babel (NDSS 1996)
+--- Mixmaster Protocol -- IETF Internet Draft 2003
+--- Maxminion: Design of type III anonymous remailer protocol (IEEE S&P 2003)
+
+- Delay-Sensitive traffic
+--- Passive attack analysis for connection-based anonymity systems, 2003
+--- Anonymity for web transactions (ACM Transactions on Information and System Security 1998)
+--- Morphmix: peer-to-peer based anonymous internet usage with collusion detection, 2002
+--- Tarzan: A peer-to-peer anonymising network layer, (ACM CCS 2002)
+
+
 - Authorization, Authentication, Accounting
   - [TahoeLAFS Capability System](https://en.wikipedia.org/wiki/Tahoe-LAFS) - The peer-base Cryptographic ACLs were inspired by TahoeLAFS Capabolity System. 
 - Data Encryption
@@ -92,6 +119,7 @@ Some of the known shortcommings of existing solutions are:
 - Solutions that are more resistant (not fully resistent) typically trade off bandwidth + memory for creating that protection (e.g. creating noise in the network to make it hard to distinguish valid from dummy traffic) 
 - Lack of data encryption at rest
 - Lack of complete authorization + revocation
+- Lack of solutions to ensure content name privacy
 
 ## Solving this Open Problem
 
@@ -100,6 +128,8 @@ Some of the known shortcommings of existing solutions are:
 Finding a complete solution to this Open Problem will grant any human in the planet the ability to privately access or share information without leaking their intent to non-local observers other than the provider of that content. Solutions may also be able to hide said intent from the content provider.
 
 It will lead to a generation of safer applications, both consumer level and business critical, that require full control of one's data (e.g. Health Data).
+
+Such solutions will bring P2P, decentralised storage and delivery networks to a different level and will establish related platforms (such as IPFS) as the de facto standard for anonymous communication.
 
 ### What defines a complete solution?
 > What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
