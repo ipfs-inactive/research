@@ -75,20 +75,20 @@ On the other end of the spectrum, anonymisation approaches that target delay-sen
 Past research has indicated several approaches to anonymisation and privacy, but very little has seen adoption to date (e.g., Tor, I2P). We believe that with the renewed interest in P2P, decentralised networks a fresh look is nedeed in order to either identify or re-design techniques that fit present-day challenges.
 
 - ICN-related Literature
--- On preserving privacy in content-oriented networks (ACM ICN 2011)
--- ANDaNA: Anonymous Named Data Networking Application (NDSS 2011)
--- Content-Centric and Named-Data Networking Security: The Good, The Bad and The Rest (IEEE LANMAN 2018)
+  - On preserving privacy in content-oriented networks (ACM ICN 2011)
+  - ANDaNA: Anonymous Named Data Networking Application (NDSS 2011)
+  - Content-Centric and Named-Data Networking Security: The Good, The Bad and The Rest (IEEE LANMAN 2018)
 
 - Non Delay Sensitive Applications:
--- Mixing email with Babel (NDSS 1996)
--- Mixmaster Protocol -- IETF Internet Draft 2003
--- Maxminion: Design of type III anonymous remailer protocol (IEEE S&P 2003)
+  - Mixing email with Babel (NDSS 1996)
+  - Mixmaster Protocol -- IETF Internet Draft 2003
+  - Maxminion: Design of type III anonymous remailer protocol (IEEE S&P 2003)
 
 - Delay-Sensitive traffic
--- Passive attack analysis for connection-based anonymity systems, 2003
--- Anonymity for web transactions (ACM Transactions on Information and System Security 1998)
--- Morphmix: peer-to-peer based anonymous internet usage with collusion detection, 2002
--- Tarzan: A peer-to-peer anonymising network layer, (ACM CCS 2002)
+  - Passive attack analysis for connection-based anonymity systems, 2003
+  - Anonymity for web transactions (ACM Transactions on Information and System Security 1998)
+  - Morphmix: peer-to-peer based anonymous internet usage with collusion detection, 2002
+  - Tarzan: A peer-to-peer anonymising network layer, (ACM CCS 2002)
 
 
 - Authorization, Authentication, Accounting
