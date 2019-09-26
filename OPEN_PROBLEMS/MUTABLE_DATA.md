@@ -11,7 +11,7 @@ Mutable Data in a Permanent Datastore? WAT?! If this is your reaction, don't des
 
 The simple trick is to use pointers. While each data struct will have its own reference (in the case of IPFS, they will have a CID), mutability is achieved by updating the pointer to point to a new version of that data structure, just like when you update your master branch (pointer) to your latest commit (immutable reference) on your Git projects.
 
-Having Mutable Data is essential to create a whole new set of applications for the Web 3.0. These applications will have different types of requirements, from millions of records being update every second, to millions of users interacting and mutating a data source.
+Having Mutable Data is essential to create a whole new set of applications for the Web 3.0. These applications will have different types of requirements, from millions of records being updated every second to millions of users interacting and mutating a data source.
 
 Creating a sound solution to achieve Mutable Data for the dWeb requires considering the three parts of the problem:
 
