@@ -120,7 +120,7 @@ Given the sheer amount of solutions and experiments to solve the multiple challe
 
 ### What is the impact
 
-Mutable Data is a fundamental building block for creating applications. Improving the existing solutions and creating new ones that will support a large number of users in a distributed context, will enable the entry of the large growing number of Internet users to be part of the dWeb.
+Mutable Data is a fundamental building block for creating applications. Improving the existing solutions and creating new ones that support a large user set in a distributed context will enable the growing number of Internet users to be part of the dWeb.
 
 ### What defines a complete solution?
 > What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
