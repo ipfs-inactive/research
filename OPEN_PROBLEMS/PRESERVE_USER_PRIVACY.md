@@ -3,21 +3,33 @@
 ## Short Description
 > In one sentence or paragraph.
 
-How to ensure that users of the IPFS network can retrieve and provide information while maintaining full anonymity.
+How to ensure that users of the IPFS network can retrieve and provide (whether as original publisher or as a cache provider) information while maintaining full anonymity. In other words, we need to find and/or build tools, techniques and protocols that <strong>decouple actions from the entities that perform them</strong>.
 
 ## Description
 
-The Web 2.0 implements a default centralized infrastructure design that fails to protect users' privacy. Some of the common patterns that we see making users vulnerable are: when data is not encrypted, both at rest and in transit, users' interactions with services leaks their intent, which creates the opportunity for a pattern analysis attack.
+The Web 2.0 implements a default centralized infrastructure design that fails to protect users' privacy. Some of the common patterns that we see making users vulnerable are: when data is not encrypted, both at rest and in transit, users' interactions with services leaks their intent, which creates the opportunity for a pattern analysis attack. In a content-addressable network, unencrypted *content names* also allow for identification of what users are requesting and matching of requests to users.
 
 In the Web 3.0, the dWeb, users get the ability to share data with other peers without using an intermediary. However, a complete solution is still missing that can prevent users leaking what data they are serving and fetching through side channels/pattern analysis (e.g. when searches are made, either through a search engine or simply by searching for the blocks in a Distributed Hash Table).
 
-Some solutions exist to mitigate this problem (see the State of the Art section below). However, none is yet complete as in "it is always 100% private, period", requiring users to adapt and adopt certain strategies to anonymize the content, depending on the type of interaction they have with other users. This Open Problem is beyond a data encryption or wire encryption problem; a complete solution will have to provide a way to grant and revoke other users' access to content (Authorization), provide users with the ability to know when a piece of content they have shared is being accessed, (Accounting) and guarantee that the users with whom the content is being shared are who they claim to be (Authentication), while not letting a third party understand what is being shared, how and with whom.
+Some solutions exist to mitigate this problem (see the State of the Art section below). However, none is yet complete as in "it is always 100% private, period", requiring users to adapt and adopt certain strategies to anonymize the content, depending on the type of interaction they have with other users. This Open Problem is beyond a data encryption or wire encryption problem; a complete solution will have to provide a way to grant and revoke other users' access to content (Authorization), provide users with the ability to know when a piece of content they have published is being accessed (Accounting), and guarantee that the users with whom the content is being shared are who they claim to be (Authentication), while not letting a third party understand what is being shared, how and with whom.
 
 This happens to be one of the toughest problems to solve in order to provide a complete and human rights preserving fabric for knowledge.
 
+## Background
+
+One of the strongest advantages of a content-addressable, or content-centric network is the fact that (if natively deployed as a network-layer architecture) it can successfully hide the identity of requesting nodes. In contrast to the standard situation where every request is carrying the requestor's IP address, a native network-layer request for explicitly named content only carries with it the name of the content and *not* where the request is coming from (i.e., source IP address). In such an environment, only immediate neighbour observers can (potentially) identify which node a request is originating from, since after the first-hop requests get "blended" together making it impossible to identify the source of the request. This is in stark contrast to the IP approach, where the source address of any request or data packet is carried permanently in the packet itself on its way to the source of the content.
+
+Assuming that Data Authenticity can be supported by default through hash-based names and always-signed content, we identify the following categories that need immediate attention in this area:
+
+- <strong>Node privacy:</strong> IPFS is working on content hashes, but libp2p is using the IP address of requesting and serving nodes. This has implications to anonymity of both requesting and serving nodes. We should find a way to hide or obfuscate the source IP address, as together with the content hash (at the IPFS layer), they are revealing what content each requesing node is consuming.
+- <strong>Name privacy:</strong> Content addressing comes with the invaluable advantage of enabling the network to know what content it is actually transmitting. This is in contrast to current IP address-based communication, where the network is forwarding packets based on IP addresses and only Deep-Packet Inspection (DPI) techniques can reveal what are the contents inside the packet. Although this feature of content addressable networks brings huge advantages in terms of performance and security as mentioned elsewhere, it comes with some privacy concerns. In particular, *the content that the network is transferring is now "in the clear" and anyone can see what is being transmited, even if the content itself is encrypted.* Ephemeral signatures and even ephemeral names have been proposed in the past to deal with the issue, but there is no widely adopted solution to date.
+- <strong>Cache privacy:</strong> Similarly to being able to see what the network is transferring through content names, seeing the contents of a cache is another feature that is becoming possible with explicitly named content. This can be tremendously beneficial in terms of performance (i.e., find content closer and faster), but it can also reveal what content a node has consumed in the recent past. This is especially so in the case of IPFS where node caches hold content that the user has either explicitly agreed to store, or content that it has recently consumed and has not expired from the cache yet.
+- <strong>Producer or signature privacy:</strong> Content authenticity in content-addressable networks is guaranteed through signatures. This is a very powerful feature, but at the same time it always reveals the identity of the signing authority or producer. Although techniques such as ephemeral signatures and anonymous credentials have been proposed, there isn't yet a widely accepted and tested solution.
+
+
 ## State of the Art
 
-> This survey on the State of the Art is not by any means complete, however, it should provide a good entry point to learn what are the existing work. If you have something that is fundamentally missing, please consider submitting a PR to augment this survey. 
+> This survey on the State of the Art is not by any means complete, however, it should provide a good entry point to learn what are the past and existing efforts in the area. If you have something that is fundamentally missing, please consider submitting a PR to augment this survey. 
 
 ### Within the IPFS Ecosystem
 > Existing attempts and strategies
@@ -52,6 +64,33 @@ Onion routing is a technique for anonymous communication over a computer network
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
 
+A general and rather simple approach and rule of thumb is to use an anonymising proxy which is placed between a sender and a receiver of traffic. This inevitably means that there is trust placed on this proxy to behave as desired. Decentralised approaches (that don't necessarily have to trust proxies or proxy operators) rely on layered encryption and multiple extra hops of routing so that any message cannot be linked to its originator/source.
+
+Research has generally fallen into one of two areas: i) those solutions that target non-delay-sensitive applications (e.g., email or FTP) and ii) those that do (e.g., VoIP, web). Traditionally, those classes have different requirements and therefore, different tradeoffs in terms of performance-anonymity requirements.
+
+Solutions to the first category include mix-network techniques, where, for instance, there is extra (spurious) traffic inserted in the network to obfuscate the environment and make it difficult to correlate traffic with senders and receivers. Artificially adding extra delay on the path from source to destination has also been a popular technique in this area.
+
+On the other end of the spectrum, anonymisation approaches that target delay-sensitive applications mainly consist of choosing random next hops to add an extra indirection (and encryption) on the path from source to destination.
+
+Past research has indicated several approaches to anonymisation and privacy, but very little has seen adoption to date (e.g., Tor, I2P). We believe that with the renewed interest in P2P, decentralised networks a fresh look is nedeed in order to either identify or re-design techniques that fit present-day challenges.
+
+- ICN-related Literature
+  - On preserving privacy in content-oriented networks (ACM ICN 2011)
+  - ANDaNA: Anonymous Named Data Networking Application (NDSS 2011)
+  - Content-Centric and Named-Data Networking Security: The Good, The Bad and The Rest (IEEE LANMAN 2018)
+
+- Non Delay Sensitive Applications:
+  - Mixing email with Babel (NDSS 1996)
+  - Mixmaster Protocol -- IETF Internet Draft 2003
+  - Maxminion: Design of type III anonymous remailer protocol (IEEE S&P 2003)
+
+- Delay-Sensitive traffic
+  - Passive attack analysis for connection-based anonymity systems, 2003
+  - Anonymity for web transactions (ACM Transactions on Information and System Security 1998)
+  - Morphmix: peer-to-peer based anonymous internet usage with collusion detection, 2002
+  - Tarzan: A peer-to-peer anonymising network layer, (ACM CCS 2002)
+
+
 - Authorization, Authentication, Accounting
   - [TahoeLAFS Capability System](https://en.wikipedia.org/wiki/Tahoe-LAFS) - The peer-base Cryptographic ACLs were inspired by TahoeLAFS Capabolity System. 
 - Data Encryption
@@ -80,6 +119,7 @@ Some of the known shortcommings of existing solutions are:
 - Solutions that are more resistant (not fully resistent) typically trade off bandwidth + memory for creating that protection (e.g. creating noise in the network to make it hard to distinguish valid from dummy traffic) 
 - Lack of data encryption at rest
 - Lack of complete authorization + revocation
+- Lack of solutions to ensure content name privacy
 
 ## Solving this Open Problem
 
@@ -88,6 +128,8 @@ Some of the known shortcommings of existing solutions are:
 Finding a complete solution to this Open Problem will grant any human in the planet the ability to privately access or share information without leaking their intent to non-local observers other than the provider of that content. Solutions may also be able to hide said intent from the content provider.
 
 It will lead to a generation of safer applications, both consumer level and business critical, that require full control of one's data (e.g. Health Data).
+
+Such solutions will bring P2P, decentralised storage and delivery networks to a different level and will establish related platforms (such as IPFS) as the de facto standard for anonymous communication.
 
 ### What defines a complete solution?
 > What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
