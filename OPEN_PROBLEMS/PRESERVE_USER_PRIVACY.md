@@ -15,7 +15,7 @@ Some solutions exist to mitigate this problem (see the State of the Art section 
 
 This happens to be one of the toughest problems to solve in order to provide a complete and human rights preserving fabric for knowledge.
 
-## Background
+### Background
 
 One of the strongest advantages of a content-addressable, or content-centric network is the fact that (if natively deployed as a network-layer architecture) it can successfully hide the identity of requesting nodes. In contrast to the standard situation where every request is carrying the requestor's IP address, a native network-layer request for explicitly named content only carries with it the name of the content and *not* where the request is coming from (i.e., source IP address). In such an environment, only immediate neighbour observers can (potentially) identify which node a request is originating from, since after the first-hop requests get "blended" together making it impossible to identify the source of the request. This is in stark contrast to the IP approach, where the source address of any request or data packet is carried permanently in the packet itself on its way to the source of the content.
 
