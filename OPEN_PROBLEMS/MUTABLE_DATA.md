@@ -111,7 +111,7 @@ There are multiple decades of Research and Projects to solve this Open Problem. 
   - https://github.com/mafintosh/hyperlog
   - https://github.com/jboner/akka-crdt
 
-### Known shortcommins of existing solutions
+### Known shortcomings of existing solutions
 > What are the limitations on those solutions?
 
 Given the sheer amount of solutions and experiments to solve the multiple challenges of this Open Problem, one common shortcomming is actually a qualitative and quantitative assessement of what is possible today and how these stack up to existing centralized versions and if they are capable or not to take on the load to fulfil the needs of the multiple use cases.
