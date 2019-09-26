@@ -67,7 +67,7 @@ Textile offers a set of tools for build decentralized applications that also wor
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
 
-There are multiple decades of Research and Projects to solve this Open Problem. Don't feel disencourged by the sheer amount of articles, it is really high valuable work!
+There are multiple decades of Research and Projects to solve this Open Problem. Don't feel discouraged by the sheer amount of articles, it is really high valuable work!
 
 - Data Structures
   - [Conflict-free replicated data types](https://scholar.google.pt/citations?view_op=view_citation&hl=en&user=NAUDTpMAAAAJ&citation_for_view=NAUDTpMAAAAJ:M3ejUd6NZC8C)
