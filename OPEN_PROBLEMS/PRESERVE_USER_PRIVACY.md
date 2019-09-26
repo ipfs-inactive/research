@@ -1,4 +1,4 @@
-# Preseve full users' privacy when providing and fetching Content
+# Preserve user privacy when providing and fetching content
 
 ## Short Description
 > In one sentence or paragraph.
