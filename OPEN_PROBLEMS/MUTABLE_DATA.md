@@ -15,7 +15,7 @@ Having Mutable Data is essential to create a whole new set of applications for t
 
 Creating a sound solution to achieve Mutable Data for the dWeb requires considering the three parts of the problem:
 
-- **Update Propagation** - As noted, diffent applications will have different requirementsm, these can go from real-time delivery, to delivery at least/most once, confirmation of delivery, conflict resolution, etc.
+- **Update Propagation** - As noted, different applications will have different requirements, e.g. real-time delivery, delivery at least/most once, confirmation of delivery, conflict resolution, etc.
 - **Update Authentication** - How to trust the parties that are propagating the updates, how to trust that they are not hiding any important update
 - **Interface/API** - This is where things that shape up to feel like a database start to show. From convinence features to powerful APIs that enable a user to query, update and search over multiple records
 
