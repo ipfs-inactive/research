@@ -60,6 +60,7 @@ Creating a separate IPFS Network will ensure that only member nodes can access t
 Onion routing is a technique for anonymous communication over a computer network. In an onion network, messages are encapsulated in layers of encryption, analogous to layers of an onion. The encrypted data is transmitted through a series of network nodes called onion routers, each of which "peels" away a single layer, uncovering the data's next destination.
 
 - [libp2p-onion](https://github.com/OpenBazaar/go-onion-transport)
+- [p3lib-sphinx](https://github.com/hashmatter/p3lib/tree/master/sphinx). Implements the sphinx onion packet format along with logic for packet construction and relaying. This protocol is used in lightning network and in Nym and  there is also [a demo of p3lib-sphinx working with libp2p](https://github.com/hashmatter/libp2p-onion-routing), [and a video](https://www.youtube.com/watch?v=j64C5CTb8J8). (Basically it allows libp2p nodes to delegate DHT requests using other libp2p nodes as relayers. This is pretty cool since you don't have to plug in/depend on any other overlay (i2p/Tor) and provide similar unlikeability and privacy properties (providing that you have enough entropy in the network and do not leak the circuit path).
 
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
