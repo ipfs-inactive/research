@@ -107,7 +107,11 @@ Past research has indicated several approaches to anonymisation and privacy, but
   - [2012 Octopus: A Secure and Anonymous DHT Lookup](https://ieeexplore.ieee.org/document/6258005)
   - [2019 Encrypted Distributed Hash Tables](https://eprint.iacr.org/2019/1126)
 - **Traffic Analysis resistant**
+  - [2009 ShadowWalker: peer-to-peer anonymous communication using redundant structured topologies](https://dl.acm.org/citation.cfm?id=1653683)
   - [2015 Vuvuzela: Scalable Private Messaging Resistant to Traffic Analysis](https://davidlazar.org/papers/vuvuzela.pdf)
+- **Private Information Retrieval**
+  - [XPIR : Private Information Retrieval for Everyone](https://eprint.iacr.org/2014/1025.pdf)
+  - [PIR with compressed queries and amortized query processing](https://eprint.iacr.org/2017/1142.pdf)
 - **Other**
   - [2018 Cwtch: Privacy Preserving Infrastructure for Asynchronous,Decentralized, Multi-Party and Metadata Resistant Applications](https://cwtch.im/cwtch.pdf)
 
@@ -117,6 +121,7 @@ Past research has indicated several approaches to anonymisation and privacy, but
 Some of the known shortcommings of existing solutions are:
 
 - They don't offer protection against network analysis (it is possible to infer what the user is doing by analysing network traffic)
+- Some of the solutions (e.g. OctopusDHT) rely on centralised certificate authorities for reputation management
 - Solutions that are more resistant (not fully resistent) typically trade off bandwidth + memory for creating that protection (e.g. creating noise in the network to make it hard to distinguish valid from dummy traffic) 
 - Lack of data encryption at rest
 - Lack of complete authorization + revocation
@@ -137,13 +142,18 @@ Such solutions will bring P2P, decentralised storage and delivery networks to a 
 
 Valid solutions should improve the current state of the art or offer definitive solutions for:
 
-- [ ] Two users can transfer a piece of information without any other user knowing or being able to predict: what it is, why it is being transferred, when and between whom.
-- [ ] No single central authority are required to mediate the communication
-- [ ] A provider has a way to grant and revoke access to information.
+- Two users can transfer a piece of information without any other user knowing or being able to predict: what it is, why it is being transferred, when and between whom.
+- No single central authority are required to mediate the communication
+- A provider has a way to grant and revoke access to information.
+- A user can discover public information without leaking information about their interest. An adversary should not be able to link two or more discovery requests either.
 
 As additional constraints
 
-- [ ] Mechanism to prevent data exfiltration (e.g. when a user goes rogue)
+- Mechanism to prevent data exfiltration (e.g. when a user goes rogue)
+
+Also, contributions towards solving this Open Problem can be in the form of answers to the following questions:
+
+- How to measure privacy?
 
 ## Other
 
