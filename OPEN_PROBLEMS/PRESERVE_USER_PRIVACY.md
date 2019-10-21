@@ -66,7 +66,10 @@ Onion routing is a technique for anonymous communication over a computer network
 
 A general and rather simple approach and rule of thumb is to use an anonymising proxy which is placed between a sender and a receiver of traffic. This inevitably means that there is trust placed on this proxy to behave as desired. Decentralised approaches (that don't necessarily have to trust proxies or proxy operators) rely on layered encryption and multiple extra hops of routing so that any message cannot be linked to its originator/source.
 
-Research has generally fallen into one of two areas: i) those solutions that target non-delay-sensitive applications (e.g., email or FTP) and ii) those that do (e.g., VoIP, web). Traditionally, those classes have different requirements and therefore, different tradeoffs in terms of performance-anonymity requirements.
+Research has generally fallen into one of two areas: 
+
+- i) those solutions that target non-delay-sensitive applications (e.g., email or FTP)
+- ii) those that do (e.g., VoIP, web). Traditionally, those classes have different requirements and therefore, different tradeoffs in terms of performance-anonymity requirements.
 
 Solutions to the first category include mix-network techniques, where, for instance, there is extra (spurious) traffic inserted in the network to obfuscate the environment and make it difficult to correlate traffic with senders and receivers. Artificially adding extra delay on the path from source to destination has also been a popular technique in this area.
 
@@ -74,41 +77,38 @@ On the other end of the spectrum, anonymisation approaches that target delay-sen
 
 Past research has indicated several approaches to anonymisation and privacy, but very little has seen adoption to date (e.g., Tor, I2P). We believe that with the renewed interest in P2P, decentralised networks a fresh look is nedeed in order to either identify or re-design techniques that fit present-day challenges.
 
-- ICN-related Literature
+- **ICN-related Literature**
   - On preserving privacy in content-oriented networks (ACM ICN 2011)
   - ANDaNA: Anonymous Named Data Networking Application (NDSS 2011)
   - Content-Centric and Named-Data Networking Security: The Good, The Bad and The Rest (IEEE LANMAN 2018)
-
-- Non Delay Sensitive Applications:
+- **Non Delay Sensitive Applications**
   - Mixing email with Babel (NDSS 1996)
   - Mixmaster Protocol -- IETF Internet Draft 2003
   - Maxminion: Design of type III anonymous remailer protocol (IEEE S&P 2003)
-
-- Delay-Sensitive traffic
-  - Passive attack analysis for connection-based anonymity systems, 2003
+- **Delay-Sensitive traffic**
   - Anonymity for web transactions (ACM Transactions on Information and System Security 1998)
   - Morphmix: peer-to-peer based anonymous internet usage with collusion detection, 2002
   - Tarzan: A peer-to-peer anonymising network layer, (ACM CCS 2002)
-
-
-- Authorization, Authentication, Accounting
-  - [TahoeLAFS Capability System](https://en.wikipedia.org/wiki/Tahoe-LAFS) - The peer-base Cryptographic ACLs were inspired by TahoeLAFS Capabolity System. 
-- Data Encryption
-  - [DoubleRatchet](https://signal.org/docs/specifications/doubleratchet/) / [Matrix.org Olm/MegaOLM](https://gitlab.matrix.org/matrix-org/olm/blob/master/docs/olm.md#olm-a-cryptographic-ratchet)
-- M2M Private Communication
-  - [Scuttlebutt Secret Handshare](https://dominictarr.github.io/secret-handshake-paper/shs.pdf)
-  - [HOPR - privacy-preserving messaging protocol ](https://github.com/validitylabs/hopr)
-  - [SoK: Secure Messaging](https://ieeexplore.ieee.org/document/7163029)
-  - [Talek: a Private Publish-Subscribe Protocol](https://raymondcheng.net/download/papers/talek-tr.pdf)
-  - [Ricochet](https://github.com/ricochet-im/ricochet/blob/master/doc/protocol.md)
-- Content Routing
+  - Passive attack analysis for connection-based anonymity systems, 2003
+- **Authorization, Authentication, Accounting**
+  - [2017 TahoeLAFS Capability System](https://en.wikipedia.org/wiki/Tahoe-LAFS) - The peer-base Cryptographic ACLs were inspired by TahoeLAFS Capabolity System. 
+- **Data Encryption**
+  - [2016 DoubleRatchet](https://signal.org/docs/specifications/doubleratchet/) / [Matrix.org Olm/MegaOLM](https://gitlab.matrix.org/matrix-org/olm/blob/master/docs/olm.md#olm-a-cryptographic-ratchet)
+- **M2M Private Communication**
+  - [2014 Ricochet](https://github.com/ricochet-im/ricochet/blob/master/doc/protocol.md)
+  - [2015 Scuttlebutt Secret Handshare](https://dominictarr.github.io/secret-handshake-paper/shs.pdf)
+  - [2015 SoK: Secure Messaging](https://ieeexplore.ieee.org/document/7163029)
+  - [2016 Talek: a Private Publish-Subscribe Protocol](https://raymondcheng.net/download/papers/talek-tr.pdf)
+  - [2018 HOPR - privacy-preserving messaging protocol ](https://github.com/validitylabs/hopr)
+- **Content Routing**
   - [Define privacy threat model for DHTs (and other overlay P2P networks)](https://github.com/gpestana/notes/issues/3)
-  - [Using Sphinx to Improve Onion Routing Circuit Construction](https://www.cypherpunks.ca/~iang/pubs/SphinxOR.pdf)
-  - [Octopus: A Secure and Anonymous DHT Lookup](https://ieeexplore.ieee.org/document/6258005)
-- Traffic Analysis resistant
-  - [Vuvuzela: Scalable Private Messaging Resistant to Traffic Analysis](https://davidlazar.org/papers/vuvuzela.pdf)
-- Other
-  - [Cwtch: Privacy Preserving Infrastructure for Asynchronous,Decentralized, Multi-Party and Metadata Resistant Applications](https://cwtch.im/cwtch.pdf)
+  - [2010 Using Sphinx to Improve Onion Routing Circuit Construction](https://www.cypherpunks.ca/~iang/pubs/SphinxOR.pdf)
+  - [2012 Octopus: A Secure and Anonymous DHT Lookup](https://ieeexplore.ieee.org/document/6258005)
+  - [2019 Encrypted Distributed Hash Tables](https://eprint.iacr.org/2019/1126)
+- **Traffic Analysis resistant**
+  - [2015 Vuvuzela: Scalable Private Messaging Resistant to Traffic Analysis](https://davidlazar.org/papers/vuvuzela.pdf)
+- **Other**
+  - [2018 Cwtch: Privacy Preserving Infrastructure for Asynchronous,Decentralized, Multi-Party and Metadata Resistant Applications](https://cwtch.im/cwtch.pdf)
 
 ### Known shortcommins of existing solutions
 > What are the limitations on those solutions?
