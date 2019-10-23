@@ -21,8 +21,8 @@ One of the strongest advantages of a content-addressable, or content-centric net
 
 Assuming that Data Authenticity can be supported by default through hash-based names and always-signed content, we identify the following categories that need immediate attention in this area:
 
-- <strong>Node privacy:</strong> IPFS is working on content hashes, but libp2p is using the IP address of requesting and serving nodes. This has implications to anonymity of both requesting and serving nodes. We should find a way to hide or obfuscate the source IP address, as together with the content hash (at the IPFS layer), they are revealing what content each requesing node is consuming.
-- <strong>Name privacy:</strong> Content addressing comes with the invaluable advantage of enabling the network to know what content it is actually transmitting. This is in contrast to current IP address-based communication, where the network is forwarding packets based on IP addresses and only Deep-Packet Inspection (DPI) techniques can reveal what are the contents inside the packet. Although this feature of content addressable networks brings huge advantages in terms of performance and security as mentioned elsewhere, it comes with some privacy concerns. In particular, *the content that the network is transferring is now "in the clear" and anyone can see what is being transmited, even if the content itself is encrypted.* Ephemeral signatures and even ephemeral names have been proposed in the past to deal with the issue, but there is no widely adopted solution to date.
+- <strong>Node privacy:</strong> IPFS is working on content hashes, but libp2p is using the IP address of requesting and serving nodes. This has implications to anonymity of both requesting and serving nodes. We should find a way to hide or obfuscate the source IP address, as together with the content hash (at the IPFS layer), they are revealing what content each requesting node is consuming.
+- <strong>Name privacy:</strong> Content addressing comes with the invaluable advantage of enabling the network to know what content it is actually transmitting. This is in contrast to current IP address-based communication, where the network is forwarding packets based on IP addresses and only Deep-Packet Inspection (DPI) techniques can reveal what are the contents inside the packet. Although this feature of content addressable networks brings huge advantages in terms of performance and security as mentioned elsewhere, it comes with some privacy concerns. In particular, *the content that the network is transferring is now "in the clear" and anyone can see what is being transmitted, even if the content itself is encrypted.* Ephemeral signatures and even ephemeral names have been proposed in the past to deal with the issue, but there is no widely adopted solution to date.
 - <strong>Cache privacy:</strong> Similarly to being able to see what the network is transferring through content names, seeing the contents of a cache is another feature that is becoming possible with explicitly named content. This can be tremendously beneficial in terms of performance (i.e., find content closer and faster), but it can also reveal what content a node has consumed in the recent past. This is especially so in the case of IPFS where node caches hold content that the user has either explicitly agreed to store, or content that it has recently consumed and has not expired from the cache yet.
 - <strong>Producer or signature privacy:</strong> Content authenticity in content-addressable networks is guaranteed through signatures. This is a very powerful feature, but at the same time it always reveals the identity of the signing authority or producer. Although techniques such as ephemeral signatures and anonymous credentials have been proposed, there isn't yet a widely accepted and tested solution.
 
@@ -76,7 +76,7 @@ Solutions to the first category include mix-network techniques, where, for insta
 
 On the other end of the spectrum, anonymisation approaches that target delay-sensitive applications mainly consist of choosing random next hops to add an extra indirection (and encryption) on the path from source to destination.
 
-Past research has indicated several approaches to anonymisation and privacy, but very little has seen adoption to date (e.g., Tor, I2P). We believe that with the renewed interest in P2P, decentralised networks a fresh look is nedeed in order to either identify or re-design techniques that fit present-day challenges.
+Past research has indicated several approaches to anonymisation and privacy, but very little has seen adoption to date (e.g., Tor, I2P). We believe that with the renewed interest in P2P, decentralised networks a fresh look is needed in order to either identify or re-design techniques that fit present-day challenges.
 
 - **ICN-related Literature**
   - On preserving privacy in content-oriented networks (ACM ICN 2011)
@@ -92,7 +92,7 @@ Past research has indicated several approaches to anonymisation and privacy, but
   - Tarzan: A peer-to-peer anonymising network layer, (ACM CCS 2002)
   - Passive attack analysis for connection-based anonymity systems, 2003
 - **Authorization, Authentication, Accounting**
-  - [2017 TahoeLAFS Capability System](https://en.wikipedia.org/wiki/Tahoe-LAFS) - The peer-base Cryptographic ACLs were inspired by TahoeLAFS Capabolity System. 
+  - [2017 TahoeLAFS Capability System](https://en.wikipedia.org/wiki/Tahoe-LAFS) - The peer-base Cryptographic ACLs were inspired by TahoeLAFS Capability System. 
 - **Data Encryption**
   - [2016 DoubleRatchet](https://signal.org/docs/specifications/doubleratchet/) / [Matrix.org Olm/MegaOLM](https://gitlab.matrix.org/matrix-org/olm/blob/master/docs/olm.md#olm-a-cryptographic-ratchet)
 - **M2M Private Communication**
@@ -115,14 +115,14 @@ Past research has indicated several approaches to anonymisation and privacy, but
 - **Other**
   - [2018 Cwtch: Privacy Preserving Infrastructure for Asynchronous,Decentralized, Multi-Party and Metadata Resistant Applications](https://cwtch.im/cwtch.pdf)
 
-### Known shortcommins of existing solutions
+### Known shortcomings of existing solutions
 > What are the limitations on those solutions?
 
-Some of the known shortcommings of existing solutions are:
+Some of the known shortcomings of existing solutions are:
 
 - They don't offer protection against network analysis (it is possible to infer what the user is doing by analysing network traffic)
 - Some of the solutions (e.g. OctopusDHT) rely on centralised certificate authorities for reputation management
-- Solutions that are more resistant (not fully resistent) typically trade off bandwidth + memory for creating that protection (e.g. creating noise in the network to make it hard to distinguish valid from dummy traffic) 
+- Solutions that are more resistant (not fully resistant) typically trade off bandwidth + memory for creating that protection (e.g. creating noise in the network to make it hard to distinguish valid from dummy traffic) 
 - Lack of data encryption at rest
 - Lack of complete authorization + revocation
 - Lack of solutions to ensure content name privacy
