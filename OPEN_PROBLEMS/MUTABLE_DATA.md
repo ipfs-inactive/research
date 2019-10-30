@@ -3,11 +3,11 @@
 ## Short Description
 > In one sentence or paragraph.
 
-How to enable a multitude of patterns of interaction between users and users, users and machines and machines and machines. In another words, what primitives to create to dynamic data apps and what guarantees can these offer.
+How to enable a multitude of patterns of interaction between users and users, users and machines and machines and machines. In other words, which primitives are necessary to create dynamic data apps and what guarantees can they offer?
 
 ## Long Description
 
-Mutable Data in a Permanent Datastore? WAT?! If this is your reaction, don't despair, we've been there too. However, the good news is that achieving mutability over immutable datastores is not a new idea, in fact, if you are checking this document through Git/GitHub, you are experiencing just that.
+Mutable Data in a Permanent Datastore? WAT?! If this is your reaction, don't despair, we've been there too. However, the good news is that achieving mutability over immutable datastores is not a new idea; in fact, if you are checking this document through Git/GitHub, you are experiencing just that.
 
 The simple trick is to use pointers. While each data struct will have its own reference (in the case of IPFS, they will have a CID), mutability is achieved by updating the pointer to point to a new version of that data structure, just like when you update your master branch (pointer) to your latest commit (immutable reference) on your Git projects.
 
@@ -17,9 +17,9 @@ Creating a sound solution to achieve Mutable Data for the dWeb requires consider
 
 - **Update Propagation** - As noted, different applications will have different requirements, e.g. real-time delivery, delivery at least/most once, confirmation of delivery, conflict resolution, etc.
 - **Update Authentication** - How to trust the parties that are propagating the updates, how to trust that they are not hiding any important update
-- **Interface/API** - This is where things that shape up to feel like a database start to show. From convinence features to powerful APIs that enable a user to query, update and search over multiple records
+- **Interface/API** - Supporting a database-link experience, including APIs that enable a user to query, update and search over multiple records
 
-All of these problems should be solved to work on a Distributed Network scenario, this means: disconnected, offline first and over unreliable networks.
+All of these problems should be solved in a manner that is tolerant of unreliable connections and offline operation.
 
 ## State of the Art
 
@@ -114,7 +114,7 @@ There are multiple decades of Research and Projects to solve this Open Problem. 
 ### Known shortcomings of existing solutions
 > What are the limitations on those solutions?
 
-Given the sheer amount of solutions and experiments to solve the multiple challenges of this Open Problem, one common shortcomming is actually a qualitative and quantitative assessement of what is possible today and how these stack up to existing centralized versions and if they are capable or not to take on the load to fulfil the needs of the multiple use cases.
+Given the sheer amount of solutions and experiments to solve the multiple challenges of this Open Problem, one common shortcoming is actually a qualitative and quantitative assessment of what is possible today and how these stack up to existing centralized versions and if they are capable or not to take on the load to fulfil the needs of the multiple use cases.
 
 ## Solving this Open Problem
 
