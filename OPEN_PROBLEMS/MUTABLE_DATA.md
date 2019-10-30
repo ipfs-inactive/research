@@ -3,17 +3,17 @@
 ## Short Description
 > In one sentence or paragraph.
 
-How to enable a multitude of patterns of interaction between users and users, users and machines and machines and machines. In other words, which primitives are necessary to create dynamic data apps and what guarantees can they offer?
+Enabling a multitude of different patterns of interactions between users, machines and both. In other words, what are the essential primitives that must be provided for dynamic applications to exist, what are the guarantees they require (consistency, availability, persistancy, authenticity, etc) from the underlying layer in order create powerful and complete applications in the Distributed Web.
 
 ## Long Description
 
 Mutable Data in a Permanent Datastore? WAT?! If this is your reaction, don't despair, we've been there too. However, the good news is that achieving mutability over immutable datastores is not a new idea; in fact, if you are checking this document through Git/GitHub, you are experiencing just that.
 
-The simple trick is to use pointers. While each data struct will have its own reference (in the case of IPFS, they will have a CID), mutability is achieved by updating the pointer to point to a new version of that data structure, just like when you update your master branch (pointer) to your latest commit (immutable reference) on your Git projects.
+The trick is to use _pointers_. While each data structure has its own reference (in the case of IPFS, that reference will be immutable and represented by a Content Identifier (CID)), we can achieve mutability by creating a meta data structure, known as a record, that points to the latest version of the data that the user is requesting. This is analogous to a developer updating the master branch to point to the latest commit (e.g. when a pull request is merged).
 
-Having Mutable Data is essential to create a whole new set of applications for the Web 3.0. These applications will have different types of requirements, from millions of records being updated every second to millions of users interacting and mutating a data source.
+Mutable Data was an essential component of the Web 2.0 revolution, when websites stopped being simple static documents and became fully fledged applications. Now, achieving scalable and secure ways to mutate data wil enable a whole set of new applications for the Web 3.0. 
 
-Creating a sound solution to achieve Mutable Data for the dWeb requires considering the three parts of the problem:
+These applications will have different types of requirements, from millions of records being updated every second to millions of users interacting and mutating a data source. Creating a sound solution to achieve Mutable Data for the dWeb requires considering the three parts of the problem:
 
 - **Update Propagation** - As noted, different applications will have different requirements, e.g. real-time delivery, delivery at least/most once, confirmation of delivery, conflict resolution, etc.
 - **Update Authentication** - How to trust the parties that are propagating the updates, how to trust that they are not hiding any important update
