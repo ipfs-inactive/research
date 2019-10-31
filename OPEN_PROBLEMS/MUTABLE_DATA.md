@@ -125,7 +125,9 @@ Mutable Data is a fundamental building block for creating applications. Improvin
 ### What defines a complete solution?
 > What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
 
-A complete solution should repetably demonstrate that it can sustain the load under multiple network conditions for use cases that in the following categories:
+We are led to believe that a complete solution for the Mutable Data Open Problem is not only one, but a set of solutions that are capable of adjusting for the type of use case.
+
+Rach of the solutions proposed should present and repetably demonstrate how it handles the most typical use cases and how they handle different loads under multiple network. And overview of these typical use cases are:
 
 - writers (i.e. publishers) to readers (i.e. consumers)
   - 1 to many - Blog
@@ -136,6 +138,17 @@ A complete solution should repetably demonstrate that it can sustain the load un
   - many to many - Social Network, Forums, Chat Rooms
 
 More use cases defined at https://github.com/libp2p/research-pubsub/blob/master/USECASES.md
+
+In addition, a solution should also contemplate answers to the following questions:
+
+- What are the guarantees that users can expect?
+- Does the system rely in a centralized compontent for it to work?
+
+Additionally, we leave here a set of questions to spark the thinking:
+
+- What form do Access Control and/or Capabilities take in a context non mediated by a centralized point?
+- Should the system allow for these Access Control and/or Capabilities to be mutable, transferable or revocable? 
+- What kind of cryptography needs to exist for access and revocation to happen?
 
 ## Other
 
