@@ -23,7 +23,7 @@ It is important to highlight that bitswap is a message-oriented protocol and _no
 This process of bitswap results in the following major problems:
 
 - **Many Roundtrips:** The most pressing issue is that requesting nodes have to make several roundtrips to walk the DAG, especially given that IPFS is a network run by untrusted nodes.
-- **Duplicate Data:** as mentioned, bitswap is operating at the block level. In turn, this means that every block has to be requested from each peer that the node is connected to. This process results in duplicate traffic towards the data requestor unnecessary load for the peers and high overhead for the network.
+- **Duplicate Data:** Bitswap is operating at the block level. In turn, this means that every block has to be requested from each peer that the node is connected to. This process results in duplicate traffic towards the data requestor, unnecessary load for the peers, and high overhead for the network.
 
 ## State of the Art
 
