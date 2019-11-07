@@ -13,7 +13,7 @@ In order to synchronise a DAG between untrusted nodes, bitswap is exploiting the
 
 In the current implementation of bitswap, requesting nodes send their WANT lists to all the peers they are directly connected to. This results in potentially duplicate data being sent back to the receiving node. When the receiving node has received the block(s) it asked for, it sends a CANCEL message to its peers to let them know that the block(s) is not in its WANT list anymore.
 
-If none of the directly connected peers have any of the WANT list blocks, bitswap falls back to the DHT to find the requested content. Obviously, this results in long delays to get to the actual peer that stores the requested content.
+If none of the directly connected peers have any of the WANT list blocks, bitswap falls back to the DHT to find the requested content. This results in long delays to get to a peer that stores the requested content.
 
 Furthermore, once the recipient node starts receiving content from multiple peer nodes, it prunes down the long-latency peers and keeps the one to which the RTT is the shortest. Instead, current proposals within the IPFS ecosystem are considering optimising for throughput. Although this has its advantages, which one is the ideal to follow is not clear at this point.
 
