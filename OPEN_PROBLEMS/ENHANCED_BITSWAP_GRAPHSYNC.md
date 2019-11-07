@@ -15,7 +15,7 @@ In the current implementation of bitswap, requesting nodes send their WANT lists
 
 If none of the directly connected peers have any of the WANT list blocks, bitswap falls back to the DHT to find the requested content. This results in long delays to get to a peer that stores the requested content.
 
-Furthermore, once the recipient node starts receiving content from multiple peer nodes, it prunes down the long-latency peers and keeps the one to which the RTT is the shortest. Instead, current proposals within the IPFS ecosystem are considering optimising for throughput. Although this has its advantages, which one is the ideal to follow is not clear at this point.
+Once the recipient node starts receiving content from multiple peer nodes, it prunes down the long-latency peers and keeps the one to which the RTT is the shortest. Current proposals within the IPFS ecosystem are considering keeping the node with the highest throughput instead. It is not clear at this point which is the best approach.
 
 It is important to highlight that bitswap is a message-oriented protocol and _not_ a request-response protocol. That is, it sends messages including WANT lists and  is then waiting for the blocks in the WANT list to be delivered back, as and when the discovery protocol manages to find the blocks in the WANT list.
 
