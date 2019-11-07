@@ -5,7 +5,7 @@
 
 Once IPFS has resolved the CID to a peerID and further to the exact location of the node that  stores the requested content, it then uses a very simple protocol called bitswap to exchange content between the requestor and the server.
 
-Although bitswap is simple and generally works, *its performance is significantly suboptimal*. This is mainly due to the fact that a node cannot request a subgraph of the DAG and results in many round-trips in order to “walk down” the DAG. The current operation of bitswap is also very often linked to duplicate transmission and receipt of content which overloads both the end nodes but also the network.
+Although bitswap is simple and generally works, *its performance is suboptimal*. This is mainly due to the fact that a node cannot request a subgraph of the DAG and results in many round-trips in order to “walk down” the DAG. The current operation of bitswap is also very often linked to duplicate transmission and receipt of content which overloads both the end nodes and the network.
 
 ## Long Description
 
