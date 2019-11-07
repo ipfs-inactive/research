@@ -11,7 +11,7 @@ Although bitswap is simple and generally works, *its performance is suboptimal*.
 
 In order to synchronise a DAG between untrusted nodes, bitswap is exploiting the content-addressability feature of IPFS. This means that bitswap starts with the root hash of the DAG. Once it fetches the data, it verifies that its hash matches. The node can now trust this block and can thus continue with the rest of the blocks in the DAG (aka walk the DAG) until it gets the complete DAG and the data associated with it.
 
-In the current implementation of bitswap, requesting nodes send their WANT lists to all the peers they are directly connected to. This inevitably results in potentially duplicate traffic travelling back to the receiving node. When the receiving node has received the block(s) it asked for, it sends a CANCEL message to its peers to let them know that the block(s) is not in its WANT list anymore.
+In the current implementation of bitswap, requesting nodes send their WANT lists to all the peers they are directly connected to. This results in potentially duplicate data being sent back to the receiving node. When the receiving node has received the block(s) it asked for, it sends a CANCEL message to its peers to let them know that the block(s) is not in its WANT list anymore.
 
 If none of the directly connected peers have any of the WANT list blocks, bitswap falls back to the DHT to find the requested content. Obviously, this results in long delays to get to the actual peer that stores the requested content.
 
