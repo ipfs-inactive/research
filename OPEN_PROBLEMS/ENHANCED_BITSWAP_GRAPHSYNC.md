@@ -36,7 +36,7 @@ The IPFS community has long been aware of the issues of bitswap and has experime
 
 - *Parallelise the DAG walk.* Inherently, DAGs have one root node and then split into binary trees. Doing one walk for each of the branches results in the same number of round trips, but reduces the actual delay in half. Clearly, this approach does not apply for single-branch graphs, such as blockchains.
 
-- *DAG Block Interconnection.* Although bitswap does not/cannot recognise any relationship between different blocks of the same DAG, a requesting node can artificially continuously ask for subsequent blocks of the same block the node that it found the previous block. This approach intuitively assumes that a node that had a block of a DAG is very likely to have subsequent ones. This is often referred to as “session” between the peers that have provided some part of the DAG.
+- *DAG Block Interconnection.* Although bitswap does not/cannot recognise any relationship between different blocks of the same DAG, a requesting node can ask a node that provided a previous block for subsequent blocks of the same DAG. This approach intuitively assumes that a node that has a block of a DAG is very likely to have others. This is often referred to as “session” between the peers that have provided some part of the DAG.
 
 - *Latency vs Throughput.* Bitswap is currently sorting peers by latency, i.e., it is pruning down the connections that incur higher latency. It has been suggested that this is changed to maximise throughput (i.e., keep the pipe full).
 
