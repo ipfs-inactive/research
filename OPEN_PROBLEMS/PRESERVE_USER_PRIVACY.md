@@ -46,6 +46,7 @@ By encrypting the data at rest and only decrypting it when it needs to be used, 
 
 ##### Capability Systems / Cryptographic ACLs
 
+- [Cryptree](https://book.peergos.org/security/cryptree.html) - This is the core of [Peergos](https://github.com/peergos/peergos) where it allows granting and revoking read or write access to individual files or entire directories in a global filesystem. Peergos' variation on the [original Cryptree](https://github.com/Peergos/Peergos/raw/master/papers/wuala-cryptree.pdf) invented by Wuala, has the added benefit of being post-quantum secure already because it only inherently relies on symmetric encryption, not asymmetric. 
 - [peer-base cryptographic ACLs](https://github.com/peer-base/peer-base) - These are used by [PeerPad](https://peerpad.net). For each user, a Public/Private key pair is generated. Every time a user wants to make a modification, the user signs that modification and encrypts it with a symmetric room key so that only owners of the symmetric key can change and only changes from valid peers are accepted.
 
 ##### Private/Disjoint Networks
