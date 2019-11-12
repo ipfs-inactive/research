@@ -5,7 +5,9 @@
 
 Once IPFS has resolved the CID to a peerID and further to the exact location of the node that  stores the requested content, it then uses a very simple protocol called bitswap to exchange content between the requestor and the server.
 
-Although bitswap is simple and generally works, *its performance is suboptimal*. This is mainly due to the fact that a node cannot request a subgraph of the DAG and results in many round-trips in order to “walk down” the DAG. The current operation of bitswap is also very often linked to duplicate transmission and receipt of content which overloads both the end nodes and the network.
+In particular, IPFS asks Bitswap for the blocks corresponding to a set of CIDs. Upon this request, Bitswap sends a request for the CIDs to all of its directly connected peers. If none of the node's directly connected peers have one or more of the requested blocks, Bitswap falls back to querying the DHT for the root node of the DAG. That said, Bitswap also participates in the discovery phase and not only in the actual block exchange.
+
+Although bitswap is simple and generally works, we feel that *its performance can be substantially improved*. One of the main factors that hold performance back is the fact that a node cannot request a subgraph of the DAG and results in many round-trips in order to “walk down” the DAG. The current operation of bitswap is also very often linked to duplicate transmission and receipt of content which overloads both the end nodes and the network.
 
 ## Long Description
 
@@ -17,13 +19,21 @@ If none of the directly connected peers have any of the WANT list blocks, bitswa
 
 Once the recipient node starts receiving content from multiple peer nodes, it prunes down the long-latency peers and keeps the one to which the RTT is the shortest. Current proposals within the IPFS ecosystem are considering keeping the node with the highest throughput instead. It is not clear at this point which is the best approach.
 
-It is important to highlight that bitswap is a message-oriented protocol and _not_ a request-response protocol. That is, it sends messages including WANT lists and  is then waiting for the blocks in the WANT list to be delivered back, as and when the discovery protocol manages to find the blocks in the WANT list.
+It is important to highlight that bitswap is a message-oriented protocol and _not_ a request-response protocol. That is, it sends messages including WANT lists and is then waiting for the blocks in the WANT list to be delivered back, as and when the discovery protocol manages to find the blocks in the WANT list.
 
 
 This process of bitswap results in the following major problems:
 
 - **Many Roundtrips:** The most pressing issue is that requesting nodes have to make several roundtrips to walk the DAG, especially given that IPFS is a network run by untrusted nodes.
 - **Duplicate Data:** Bitswap is operating at the block level. In turn, this means that every block has to be requested from each peer that the node is connected to. This process results in duplicate traffic towards the data requestor, unnecessary load for the peers, and high overhead for the network.
+
+In the latest release of Bitswap there is an optimisation of the above procedure that incorporates the concept of Sessions. Sessions are used to keep track of peers that have some of the blocks that the Session is interested in. In particular:
+
+- When IPFS asks Bitswap for the blocks corresponding to a set of CIDs, Bitswap:
+  - creates a new session
+  - starts a discovery phase to find the peers with a subset of the blocks.
+- As peers are discovered they are remembered by the Session. Subsequent requests are sent only to those peers.
+- If there is a timeout, the Session tries to discover more peers through the DHT.
 
 ## State of the Art
 
@@ -44,7 +54,17 @@ The IPFS community has long been aware of the issues of bitswap and has experime
 
 - *GraphSync through IPLD selectors:* GraphSync is a specification of a protocol to synchronise graphs across peers. Graphsync answers the question of “how do we succinctly identify selectors connected to the root”. In doing that, it develops WANT lists of selectors instead of blocks. Furthermore, in contrast to bitswap, which is message-oriented, GraphSync includes responses and is thus closer to a request-response protocol. If designed carefully, GraphSync can be very effective but there are still unresolved challenges: i) it is more difficult to parallelise (see above), given that GraphSync operates in terms of requests and not blocks, ii) it can potentially be much easier to carry DDoS attacks with queries than with requests for blocks.
 
-- *WANT Potential and HAVE message.* There have been several optimisation proposals, such as the implementation of a HAVE message before actually sending the requested block back. Although this immediately reduces duplicate traffic, it introduces one extra RTT, which might not be desirable in some cases, but might not have any negative impact in many others.
+- *WANT Potential and HAVE message.* There have been several optimisation proposals, such as the implementation of a HAVE message before actually sending the requested block back. Although this immediately reduces duplicate traffic, it introduces one extra RTT, which might not be desirable in some cases, but might not have any negative impact in many others. In particular, the new message types are:
+
+  - HAVE: a node can indicate that it has a block, which helps with reducing duplication, particularly during the discovery phase.
+  - DONT_HAVE: a node can immediately indicate that it does not have a block. This is in contrast to the current implementation, where the requesting node has to wait for a timeout.
+
+In the latest proof-of-concept implementation, the following message combinations are being implemented as optimisation steps:
+
+  - WANT-BLOCK: *"send the block if you have it"*. This is an attempt to avoid the extra RTT.
+  - WANT-HAVE: *"let me know if you have the block"*. This is to avoid duplication and help disseminate knowledge of block distribution in the network.
+  
+This way, the WANT-BLOCK messages are directed to the peers that are most likely to have those blocks.
 
 - Golang Implementation of Bitswap: https://github.com/ipfs/go-bitswap
 - GraphSync: https://github.com/ipld/specs/blob/master/block-layer/graphsync/graphsync.md
@@ -53,6 +73,7 @@ The IPFS community has long been aware of the issues of bitswap and has experime
 - Bitswap Protocol Extensions: https://github.com/ipfs/go-bitswap/issues/186
 - Reed-Solomon layer over IPFS: https://github.com/ipfs/notes/issues/196
 - Bitswap Request Sharding: https://github.com/ipfs/go-bitswap/issues/167
+- Bitswap POC with HAVE / DONT_HAVE: ipfs/go-bitswap#189 
 
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
