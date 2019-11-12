@@ -147,3 +147,5 @@ There are several desirable features discussed within IPFS that should be implem
 
 
 ### Extra notes
+
+[qri.io](https://qri.io/): a data transfer mechanism using IPFS components to keep track of blocks in a DAG using Manifest files (similar to bittorrent magnet files) - https://github.com/qri-io/dag
