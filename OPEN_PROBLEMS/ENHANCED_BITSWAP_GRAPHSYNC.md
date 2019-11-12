@@ -73,7 +73,7 @@ This way, the WANT-BLOCK messages are directed to the peers that are most likely
 - Bitswap Protocol Extensions: https://github.com/ipfs/go-bitswap/issues/186
 - Reed-Solomon layer over IPFS: https://github.com/ipfs/notes/issues/196
 - Bitswap Request Sharding: https://github.com/ipfs/go-bitswap/issues/167
-- Bitswap POC with HAVE / DONT_HAVE: ipfs/go-bitswap#189 
+- Bitswap POC with HAVE / DONT_HAVE: https://github.com/ipfs/go-bitswap#189 
 
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
