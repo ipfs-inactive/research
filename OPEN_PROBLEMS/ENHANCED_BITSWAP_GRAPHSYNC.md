@@ -7,7 +7,7 @@ Once IPFS has resolved the CID to a peerID and further to the exact location of 
 
 In particular, IPFS asks Bitswap for the blocks corresponding to a set of CIDs. Upon this request, Bitswap sends a request for the CIDs to all of its directly connected peers. If none of the node's directly connected peers have one or more of the requested blocks, Bitswap falls back to querying the DHT for the root node of the DAG. That said, Bitswap also participates in the discovery phase and not only in the actual block exchange.
 
-Although bitswap is simple and generally works, we feel that *its performance can be substantially improved*. One of the main factors that hold performance back is the fact that a node cannot request a subgraph of the DAG and results in many round-trips in order to “walk down” the DAG. The current operation of bitswap is also very often linked to duplicate transmission and receipt of content which overloads both the end nodes and the network.
+Although bitswap is simple and generally works, we feel that *its performance can be substantially improved*. One of the main factors that hold performance back is the fact that *a node cannot request a subgraph of the DAG and results in many round-trips in order to “walk down” the DAG*. The current operation of bitswap is also very often linked to *duplicate transmission and receipt of content which overloads both the end nodes and the network*.
 
 ## Long Description
 
