@@ -123,7 +123,7 @@ Bitswap is a central component of the IPFS system and a protocol that generally 
 ### What defines a complete solution?
 > What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
 
-First and foremost, any complete solution should account for extensibility as the IPFS system needs to scale up and more applications are implemented on top. The active number of users of IPFS is increasing exponentially and the requests submitted to the network are following accordingly. That said, a complete solution should account for those numbers.
+First and foremost, any complete solution should account for extensibility as the IPFS system needs to scale up and more applications are implemented on top. The active number of users of IPFS is increasing exponentially and the requests submitted to the network are following accordingly. That being said and acknowledging the fact that it is often difficult to find "one size fits all" solutions, tunable versions of bitswap that can dynamically adapt according to network and environment conditions is an avenue that needs to be explored.
 
 There are several desirable features discussed within IPFS that should be implemented in a complete solution for bitswap and its successor GraphSync - see list below in Existing Conversations/Threads section. Some of them target clean protocol extensions, while some others target higher-level measurement and UI/UX issues.
 
