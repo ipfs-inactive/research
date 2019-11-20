@@ -3,13 +3,13 @@
 ## Short Description
 > In one sentence or paragraph.
 
-Once IPFS has resolved the CID to a peerID and further to the exact location of the node that  stores the requested content, it then uses a very simple protocol called bitswap to exchange content between the requestor and the server.
-
-In particular, IPFS asks Bitswap for the blocks corresponding to a set of CIDs. Upon this request, Bitswap sends a request for the CIDs to all of its directly connected peers. If none of the node's directly connected peers have one or more of the requested blocks, Bitswap falls back to querying the DHT for the root node of the DAG. That said, Bitswap also participates in the discovery phase and not only in the actual block exchange.
-
-Although bitswap is simple and generally works, we feel that *its performance can be substantially improved*. One of the main factors that hold performance back is the fact that *a node cannot request a subgraph of the DAG and results in many round-trips in order to “walk down” the DAG*. The current operation of bitswap is also very often linked to *duplicate transmission and receipt of content which overloads both the end nodes and the network*.
+Bitswap is a simple protocol and it generally works. However, we feel that *its performance can be substantially improved*. One of the main factors that hold performance back is the fact that *a node cannot request a subgraph of the DAG and results in many round-trips in order to “walk down” the DAG*. The current operation of bitswap is also very often linked to *duplicate transmission and receipt of content which overloads both the end nodes and the network*.
 
 ## Long Description
+
+IPFS starts by resolving the CID to a peerID and further to the exact location of the node that stores the requested content. It then uses a very simple protocol called bitswap to exchange content between the requestor and the server.
+
+In particular, IPFS asks Bitswap for the blocks corresponding to a set of CIDs. Upon this request, Bitswap sends a request for the CIDs to all of its directly connected peers. If none of the node's directly connected peers have one or more of the requested blocks, Bitswap falls back to querying the DHT for the root node of the DAG. That said, Bitswap also participates in the discovery phase and not only in the actual block exchange.
 
 In order to synchronise a DAG between untrusted nodes, bitswap is exploiting the content-addressability feature of IPFS. This means that bitswap starts with the root hash of the DAG. Once it fetches the data, it verifies that its hash matches. The node can now trust this block and can thus continue with the rest of the blocks in the DAG (aka walk the DAG) until it gets the complete DAG and the data associated with it.
 
@@ -17,7 +17,7 @@ In the current implementation of bitswap, requesting nodes send their WANT lists
 
 If none of the directly connected peers have any of the WANT list blocks, bitswap falls back to the DHT to find the requested content. This results in long delays to get to a peer that stores the requested content.
 
-Once the recipient node starts receiving content from multiple peer nodes, it prunes down the long-latency peers and keeps the one to which the RTT is the shortest. Current proposals within the IPFS ecosystem are considering keeping the node with the highest throughput instead. It is not clear at this point which is the best approach.
+Once the recipient node starts receiving content from multiple peer nodes, bitswap prioritises sending WANT lists to the peers with lower latencies. Current proposals within the IPFS ecosystem are considering prioritising sending the WANT lists to those nodes with the least amount of queued work, in the hope that this will result in higher througput. It is not clear at this point which approach will lead to the highest performance benefit.
 
 It is important to highlight that bitswap is a message-oriented protocol and _not_ a request-response protocol. That is, it sends messages including WANT lists and is then waiting for the blocks in the WANT list to be delivered back, as and when the discovery protocol manages to find the blocks in the WANT list.
 
@@ -30,9 +30,9 @@ This process of bitswap results in the following major problems:
 In the latest release of Bitswap there is an optimisation of the above procedure that incorporates the concept of Sessions. Sessions are used to keep track of peers that have some of the blocks that the Session is interested in. In particular:
 
 - When IPFS asks Bitswap for the blocks corresponding to a set of CIDs, Bitswap:
-  - creates a new session
+  - creates a new sessions
   - starts a discovery phase to find the peers with a subset of the blocks.
-- As peers are discovered they are remembered by the Session. Subsequent requests are sent only to those peers.
+- As peers are discovered they are remembered by the Session. Bitswap _divides_ subsequent requests _between peers_ in a session. That is, it _does not_ ask every peer for every block, it asks a subset of the peers in the session (usually 1-2) for each block
 - If there is a timeout, the Session tries to discover more peers through the DHT.
 
 ## State of the Art
@@ -48,7 +48,7 @@ The IPFS community has long been aware of the issues of bitswap and has experime
 
 - *DAG Block Interconnection.* Although bitswap does not/cannot recognise any relationship between different blocks of the same DAG, a requesting node can ask a node that provided a previous block for subsequent blocks of the same DAG. This approach intuitively assumes that a node that has a block of a DAG is very likely to have others. This is often referred to as “session” between the peers that have provided some part of the DAG.
 
-- *Latency vs Throughput.* Bitswap is currently sorting peers by latency, i.e., it is pruning down the connections that incur higher latency. It has been suggested that this is changed to maximise throughput (i.e., keep the pipe full).
+- *Latency & Throughput Optimisation.* Bitswap is currently sorting peers by latency, i.e., it is prioritising the connections that incur lower latency. Ideally, a hybrid approach needs to be implemented, where prioritisation based on latency applies to narrow but deep DAGs (e.g., blockchains), whereas prioritisation based on higher throughput applies to wide DAGs that are being traversed in parallel.
 
 - *Coding and Reed Solomon Codes.* This is a very efficient way to reduce storage space in general (trusted or untrusted) caching systems. The area of coded caching has seen significant development lately in the research community, hence, it is discussed further down.
 
@@ -93,7 +93,11 @@ The bittorrent protocol has a different architectural design, which includes the
 
 There have been significant research efforts lately in the area of coded caching. The main concept has been proposed in 1960s in the form of error correction and targeted the area of content delivery over wireless, lossy channels. It has been known as Reed-Solomon error correction. Lately, with seminal works such as “Fundamental Limits of Caching”, Niesen et. al. have proposed the use of coding to improve caching performance. In a summary, the technique works as follows: if we have a file that consists of 10 chunks and we store all 10 chunks in the same or different memories/nodes, then we need to retrieve those exact 10 chunks in order to reconstruct the file.
 
-In contrast, according to the coded caching theory, before storing the 10 chunks we encode the file using erasure codes. This results in some number of chunks x>10, say 13, for the sake of illustration. This clearly results in more data produced after adding codes to the original data. However, when attempting to retrieve the original file, a user needs to collect *any 10 of those 13 chunks*. By doing so, the user will be able to reconstruct the original file, without needing to get all 13 chunks. Although such approach does not save bandwidth (we still need to reconstruct 10 chunks of equal size to the original one), it makes the network more resilient to nodes being unavailable. In other words, in order to reconstruct the original file without coding, all 10 of the original peers that store a file have to be online and ready to deliver the chunks, whereas in the coded caching case, any 10 out of the 13 peers need to be available and ready to provide the chunks. Blind replication of the original chunks will not provide the same benefit, as the number of peers will need to be much higher (at least 20 as compared to 13) in order to operate with the same satisfaction ratio.
+In contrast, according to the coded caching theory, before storing the 10 chunks, we encode the file using erasure codes. This results in some number of chunks x>10, say 13, for the sake of illustration. This clearly results in more data produced after adding codes to the original data. However, when attempting to retrieve the original file, a user needs to collect *any 10 of those 13 chunks*. By doing so, the user will be able to reconstruct the original file, without needing to get all 13 chunks. 
+
+Although such approach does not save bandwidth (we still need to reconstruct 10 chunks of equal size to the original one), it makes the network more resilient to nodes being unavailable. In other words, in order to reconstruct the original file without coding, all 10 of the original peers that store a file have to be online and ready to deliver the chunks, whereas in the coded caching case, any 10 out of the 13 peers need to be available and ready to provide the chunks. Possibly more importantly, coded caching can provide significant performance benefits in terms of load-balancing. In case of large files, the upload link of nodes will be saturated for long periods of time. In contrast, delivering a few coded chunks and gathering the rest from other nodes will load-balance between nodes that store the requested content.
+
+Blind replication of the original object will not provide the same benefit, as the number of peers will need to be much higher (at least 20 as compared to 13) in order to operate with the same satisfaction ratio.
 
 - Reed-Solomon Error Correction: https://en.wikipedia.org/wiki/Reed–Solomon_error_correction
 - Maddah-Ali,  M.A.,  Niesen,  U.   Fundamental  limits  of  caching. IEEE  Transactions  on  Information Theory,60(5):2856–2867, 2014
